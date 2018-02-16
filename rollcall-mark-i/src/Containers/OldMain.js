@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import logo from "../Assets/logo.svg";
-import "./OldMain.css";
 
 class OldMain extends Component {
   render() {

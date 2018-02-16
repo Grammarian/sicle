@@ -2,12 +2,11 @@ import React from "react";
 
 class Error extends React.Component {
   render() {
-    const { error } = this.props;
-    console.log(error);
+    console.log(this.props.data);
     return (
       <div>
         <h2>Oops. Something bad happened</h2>
-        <p>{error.message}</p>
+        <p>{this.props.data.error.message}</p>
       </div>
     );
   }
