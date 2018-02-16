@@ -6,20 +6,24 @@ import OldMain from "../Containers/OldMain";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import App from "grommet/components/App";
+
 class Main extends Component {
   render() {
     return (
       <Router>
         <div className="react-root">
-          <PageHeader />
-          <div className="body-content">
-            <Route exact path="/" component={Overview} />
-            {/* <Route path="/projects" component={Projects} /> */}
-            {/* <Route path="/project/:id" component={ProjectAssessments} />
+          <App centered={true}>
+            <PageHeader />
+            <div className="body-content">
+              <Route exact path="/" component={Overview} />
+              {/* <Route path="/projects" component={Projects} /> */}
+              {/* <Route path="/project/:id" component={ProjectAssessments} />
             <Route path="/assessment/:id" component={AssessmentPage} /> */}
-            <Route path="/old" component={OldMain} />
-          </div>
-          <PageFooter />
+              <Route path="/old" component={OldMain} />
+            </div>
+            <PageFooter />
+          </App>
         </div>
       </Router>
     );
