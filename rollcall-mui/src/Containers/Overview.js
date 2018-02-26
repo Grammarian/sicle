@@ -5,7 +5,29 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import Loading from "../Components/Loading";
 import Error from "../Components/Error";
+import { Heading, SubHeading, List, ListItem } from "../Basics";
+import Checkbox from "material-ui/Checkbox";
+// import IconButton from "material-ui/IconButton";
+import Avatar from "material-ui/Avatar";
+import WifiIcon from "material-ui-icons/Wifi";
 
+const defaultData = {
+  allSchools: [
+    { name: "Springfield High" },
+    { name: "Sky High" },
+    { name: "Jump Street High School" }
+  ],
+  allTeachers: [
+    { givenNames: "Aaron", familyName: "Yurt" },
+    { givenNames: "Alice", familyName: "Cooper" },
+    { givenNames: "Bart", familyName: "Simpson" }
+  ],
+  allStudents: [
+    { givenNames: "Terrence Trent", familyName: "Draby" },
+    { givenNames: "Joe", familyName: "Fox" },
+    { givenNames: "Marge", familyName: "Simpson" }
+  ]
+};
 class Overview extends Component {
   render() {
     if (this.props.data.loading) {
@@ -14,28 +36,36 @@ class Overview extends Component {
     if (this.props.data.error) {
       return <Error data={this.props.data} />;
     }
-    const { allSchools, allTeachers, allStudents } = this.props.data;
+    const { allSchools, allTeachers, allStudents } = defaultData; //this.props.data;
     return (
       <div>
-        <h1>Overview</h1>
-        <h2>School</h2>
-        <ul>{allSchools.map(school => <li>{school.name}</li>)}</ul>
-        <h2>Teachers</h2>
-        <ul>
+        <Heading>Overview</Heading>
+        <SubHeading>School</SubHeading>
+        <List>
+          {allSchools.map(school => (
+            <ListItem
+              text={school.name}
+              icon={
+                <Avatar>
+                  <WifiIcon />
+                </Avatar>
+              }
+              action={<Checkbox>XX</Checkbox>}
+            />
+          ))}
+        </List>
+        <SubHeading>Teachers</SubHeading>
+        <List>
           {allTeachers.map(teacher => (
-            <li>
-              {teacher.familyName}, {teacher.givenNames}
-            </li>
+            <ListItem text={teacher.familyName + " " + teacher.givenNames} />
           ))}
-        </ul>
-        <h2>Students</h2>
-        <ul>
+        </List>
+        <SubHeading>Students</SubHeading>
+        <List>
           {allStudents.map(student => (
-            <li>
-              {student.familyName}, {student.givenNames}
-            </li>
+            <ListItem text={student.familyName + " " + student.givenNames} />
           ))}
-        </ul>
+        </List>
       </div>
     );
   }

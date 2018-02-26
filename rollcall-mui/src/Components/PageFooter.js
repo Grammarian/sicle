@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { LightBodyText } from "../Basics";
 
 class PageFooter extends Component {
   render() {
-    return <p>page footer</p>;
+    return <LightBodyText align="center">page footer</LightBodyText>;
   }
 }
 

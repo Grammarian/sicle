@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { BodyText } from "../Basics";
 
 class PageHeader extends Component {
   render() {
-    return <p>page header</p>;
+    return <BodyText>page header</BodyText>;
   }
 }
 
