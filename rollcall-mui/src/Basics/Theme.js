@@ -1,24 +1,15 @@
 import React from "react";
 
-// Theme
 import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
 import Reboot from "material-ui/Reboot";
-// import { deepOrange500 } from "material-ui/colors";
-// import createPalette from "material-ui/styles/createPalette";
-// import createTypography from "material-ui/styles/createTypography";
 
-// Styles
-// const styles = {
-//   container: {}
-// };
-
-// Theme
 const theme = createMuiTheme({
   palette: {
-    type: "light"
+    type: "dark"
   },
   typography: {
-    fontFamily: "'Open Sans',serif,Roboto,'Helvetica Neue',Arial,sans-serif"
+    fontFamily:
+      "Roboto,'Open Sans',serif,Roboto,'Helvetica Neue',Arial,sans-serif"
   }
 });
 

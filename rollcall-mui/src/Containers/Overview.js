@@ -9,7 +9,7 @@ import { Heading, SubHeading, List, ListItem } from "../Basics";
 import Checkbox from "material-ui/Checkbox";
 // import IconButton from "material-ui/IconButton";
 import Avatar from "material-ui/Avatar";
-import WifiIcon from "material-ui-icons/Wifi";
+import SchoolIcon from "material-ui-icons/AccountBalance";
 
 const defaultData = {
   allSchools: [
@@ -33,9 +33,9 @@ class Overview extends Component {
     if (this.props.data.loading) {
       return <Loading />;
     }
-    if (this.props.data.error) {
-      return <Error data={this.props.data} />;
-    }
+    // if (this.props.data.error) {
+    //   return <Error data={this.props.data} />;
+    // }
     const { allSchools, allTeachers, allStudents } = defaultData; //this.props.data;
     return (
       <div>
@@ -47,7 +47,7 @@ class Overview extends Component {
               text={school.name}
               icon={
                 <Avatar>
-                  <WifiIcon />
+                  <SchoolIcon />
                 </Avatar>
               }
               action={<Checkbox>XX</Checkbox>}
