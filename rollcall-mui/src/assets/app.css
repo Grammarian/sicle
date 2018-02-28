@@ -1,0 +1,6 @@
+/* Absolute minimum CSS since everything should be done by JSS */
+
+body {
+  background-color: #eeeeee;
+  color: #3c4858;
+}

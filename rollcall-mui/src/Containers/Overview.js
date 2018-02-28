@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import Loading from "../Components/Loading";
-import Error from "../Components/Error";
-import { Heading, SubHeading, List, ListItem } from "../Basics";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
+import { Heading, SubHeading, List, ListItem } from "../basics";
 import Checkbox from "material-ui/Checkbox";
 // import IconButton from "material-ui/IconButton";
 import Avatar from "material-ui/Avatar";

@@ -1,30 +1,60 @@
-import React, { Component } from "react";
-import PageHeader from "../Components/PageHeader";
-import PageFooter from "../Components/PageFooter";
-import Overview from "../Containers/Overview";
-import OldMain from "../Containers/OldMain";
-import ApplicationFrame from "../Components/ApplicationFrame";
-import AppBar from "material-ui/AppBar";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from "react";
+import PropTypes from "prop-types";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-class Main extends Component {
+import { withStyles } from "material-ui";
+
+import appStyle from "../styles/appStyle.js";
+
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+import appRoutes from "../routes/rollcallApp.js";
+
+import image from "../assets/sidebar-2.jpg";
+import logo from "../assets/logo.png";
+
+class Main extends React.Component {
+  state = {
+    drawerOpen: false
+  };
+  handleDrawerToggle = () => {
+    this.setState({ drawerOpen: !this.state.drawerOpen });
+  };
   render() {
+    const { classes, ...rest } = this.props;
+
     return (
-      <div className="react-root">
-        <ApplicationFrame>
-          <Router>
-            <div className="body-content">
-              <Route exact path="/" component={Overview} />
-              {/* <Route path="/projects" component={Projects} /> */}
-              {/* <Route path="/project/:id" component={ProjectAssessments} />
-            <Route path="/assessment/:id" component={AssessmentPage} /> */}
-              <Route path="/old" component={OldMain} />
+      <div className={classes.wrapper}>
+        <Sidebar
+          routes={appRoutes}
+          logoText={"Roll Call"}
+          logo={logo}
+          image={image}
+          handleDrawerToggle={this.handleDrawerToggle}
+          open={this.state.drawerOpen}
+          color="blue"
+          {...rest}
+        />
+        <div className={classes.mainPanel} ref="mainPanel">
+          <Header routes={appRoutes} handleDrawerToggle={this.handleDrawerToggle} {...rest} />
+          <div className={classes.content}>
+            <div className={classes.container}>
+              <Switch>
+                {appRoutes.map((prop, key) => {
+                  if (prop.redirect) return <Redirect from={prop.path} to={prop.to} key={key} />;
+                  return <Route path={prop.path} component={prop.component} key={key} />;
+                })}
+              </Switch>
             </div>
-          </Router>
-        </ApplicationFrame>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default Main;
+Main.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(appStyle)(Main);

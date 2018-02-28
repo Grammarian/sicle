@@ -1,32 +1,25 @@
-import React, { Component } from "react";
-import Main from "./Main";
-import { ApolloProvider } from "react-apollo";
-import { ApolloClient } from "apollo-client";
-import { HttpLink } from "apollo-link-http";
-import { InMemoryCache } from "apollo-cache-inmemory";
+import React from "react";
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch } from "react-router-dom";
+import Reboot from "material-ui/Reboot";
 
-// Theme
-import { Theme } from "../Basics";
+import "../assets/app.css";
 
-// Theme
+import topRoutes from "../routes/topLevel.js";
 
-const client = new ApolloClient({
-  link: new HttpLink({
-    uri: "https://api.graph.cool/simple/v1/cjdl7f58b0l6d01611ql5p8jd"
-  }),
-  cache: new InMemoryCache()
-});
+const hist = createBrowserHistory();
 
-class App extends Component {
-  render() {
-    return (
-      <ApolloProvider client={client}>
-        <Theme>
-          <Main />
-        </Theme>
-      </ApolloProvider>
-    );
-  }
-}
+const App = () => (
+  <div>
+    <Reboot />
+    <Router history={hist}>
+      <Switch>
+        {topRoutes.map((route, idx) => {
+          return <Route path={route.path} component={route.component} key={idx} />;
+        })}
+      </Switch>
+    </Router>
+  </div>
+);
 
 export default App;
