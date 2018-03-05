@@ -51,6 +51,9 @@ const headerStyle = theme => ({
     //   background: "transparent"
     // }
   },
+  avatar: {
+    marginLeft: "8px"
+  },
   appResponsive: {
     top: "8px"
   }
