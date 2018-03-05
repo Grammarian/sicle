@@ -8,25 +8,25 @@ const rollCallAppRoutes = [
   {
     path: "/dashboard",
     sidebarName: "Dashboard",
-    navbarName: "Dashboard",
+    headerName: "Dashboard",
     icon: Dashboard,
     component: DashboardPage
   },
   {
     path: "/attendance",
     sidebarName: "Attendance",
-    navbarName: "Attendance",
+    headerName: "Attendance",
     icon: CheckCircle,
     component: AttendancePage
   },
   {
     path: "/students",
     sidebarName: "Students",
-    navbarName: "Students",
+    headerName: "Students",
     icon: Person,
     component: StudentsPage
   },
-  { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
+  { redirect: true, path: "/", to: "/dashboard", headerName: "Redirect" }
 ];
 
 export default rollCallAppRoutes;

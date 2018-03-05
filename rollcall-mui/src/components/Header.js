@@ -1,25 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Menu } from "material-ui-icons";
-import { withStyles, AppBar, Toolbar, IconButton, Hidden, Button } from "material-ui";
+import {
+  withStyles,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Hidden,
+  Button
+} from "material-ui";
 import cx from "classnames";
 
 import headerStyle from "../styles/headerStyle.js";
 
 import HeaderControls from "./HeaderControls";
 
+function findHeaderLabel(routes, location) {
+  const route = routes.find(x => x.path === location.pathname);
+  return !!route ? route.headerName : null;
+}
+
 function Header({ ...props }) {
-  function makeBrand() {
-    var name;
-    props.routes.map((prop, key) => {
-      if (prop.path === props.location.pathname) {
-        name = prop.navbarName;
-      }
-      return null;
-    });
-    return name;
-  }
-  const { classes, color } = props;
+  const { classes, color = "primary" } = props;
   const appBarClasses = cx({
     [" " + classes[color]]: color
   });
@@ -27,9 +29,8 @@ function Header({ ...props }) {
     <AppBar className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
-          {/* Here we create navbar brand, based on route name */}
           <Button href="#" className={classes.title}>
-            {makeBrand()}
+            {findHeaderLabel(props.routes, props.location)}
           </Button>
         </div>
         <Hidden smDown implementation="css">

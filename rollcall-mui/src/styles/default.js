@@ -18,7 +18,7 @@
 // // // Variables - Styles that are used on more than one component
 // #############################
 
-const drawerWidth = 260;
+const drawerWidth = 270;
 
 const transition = {
   transition: "all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)"
@@ -41,7 +41,7 @@ const card = {
   position: "relative",
   width: "100%",
   margin: "25px 0",
-  boxShadow: "0 1px 4px 0 rgba(0, 0, 0, 0.14)",
+  boxShadow: "2px 3px 4px 0 rgba(0, 0, 0, 0.2)",
   borderRadius: "3px",
   color: "rgba(0, 0, 0, 0.87)",
   background: "#fff"
@@ -122,7 +122,6 @@ const defaultBoxShadow = {
   borderRadius: "3px",
   boxShadow:
     "0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
-  padding: "10px 0",
   transition: "all 150ms ease 0s"
 };
 
