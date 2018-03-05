@@ -1,18 +1,11 @@
 import React from "react";
-import {
-  withStyles,
-  Card,
-  CardContent,
-  CardHeader,
-  CardActions,
-  Typography
-} from "material-ui";
+import { withStyles, Card, CardContent, CardHeader } from "material-ui";
 import PropTypes from "prop-types";
 
 import iconCardStyle from "../styles/iconCardStyle";
 
 function IconCard({ ...props }) {
-  const { classes, title, iconColor, ...rest } = props;
+  const { classes, title, iconColor, children, ...rest } = props;
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -24,7 +17,7 @@ function IconCard({ ...props }) {
       />
       <CardContent className={classes.cardContent}>
         <div className={classes.cardTitle}>{title}</div>
-        <div className={classes.cardBody}>{rest}</div>
+        <div className={classes.cardBody}>{children}</div>
       </CardContent>
     </Card>
   );
