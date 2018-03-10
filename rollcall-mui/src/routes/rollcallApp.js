@@ -1,5 +1,5 @@
 import DashboardPage from "../containers/DashboardPage.js";
-import AttendancePage from "../containers/AttendancePage.js";
+import AttendancePage from "../containers/AttendancePage/AttendancePage.js";
 import StudentsPage from "../containers/StudentsPage.js";
 
 import { Dashboard, Person, CheckCircle } from "material-ui-icons";

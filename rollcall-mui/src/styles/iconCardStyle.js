@@ -33,11 +33,7 @@ const iconCardStyle = {
   redCardHeader,
   blueCardHeader,
   purpleCardHeader,
-  cardContent: {
-    textAlign: "right",
-    paddingTop: "10px",
-    padding: "15px 20px"
-  },
+  cardContent: {},
   cardIcon: {
     width: "40px",
     height: "36px",
@@ -46,42 +42,17 @@ const iconCardStyle = {
   cardAvatar: {
     margin: "8px"
   },
-  cardCategory: {
-    marginBottom: "0",
-    color: grayColor,
-    margin: "0 0 10px",
-    ...defaultFont
+  cardTop: {
+    borderBottom: "rgba(0, 0, 0, 0.1) 1px solid"
   },
-  cardTitle: {
-    margin: "0",
-    ...defaultFont,
-    fontSize: "1.625em",
-    color: card.color
+  cardTopFinish: {
+    clear: "both",
+    paddingTop: "8px"
+  },
+  cardTopContent: {
+    padding: "12px 48px 0 0" // cardIcon width plus gap
   },
   cardBody: {},
-  cardTitleSmall: {
-    fontSize: "65%",
-    fontWeight: "400",
-    lineHeight: "1",
-    color: "#777"
-  },
-  cardActions: {
-    ...cardActions,
-    padding: "0!important"
-  },
-  cardStats: {
-    lineHeight: "22px",
-    color: grayColor,
-    fontSize: "12px",
-    display: "inline-block",
-    margin: "0!important"
-  },
-  cardStatsIcon: {
-    position: "relative",
-    top: "4px",
-    width: "16px",
-    height: "16px"
-  },
   warningCardStatsIcon: {
     color: warningColor
   },
@@ -102,11 +73,6 @@ const iconCardStyle = {
   },
   grayCardStatsIcon: {
     color: grayColor
-  },
-  cardStatsLink: {
-    color: primaryColor,
-    textDecoration: "none",
-    ...defaultFont
   }
 };
 

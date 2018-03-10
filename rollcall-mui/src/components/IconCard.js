@@ -5,18 +5,22 @@ import PropTypes from "prop-types";
 import iconCardStyle from "../styles/iconCardStyle";
 
 function IconCard({ ...props }) {
-  const { classes, title, iconColor, children, ...rest } = props;
+  const { classes, top, iconColor, children } = props;
   return (
     <Card className={classes.card}>
-      <CardHeader
-        classes={{
-          root: classes.cardHeader + " " + classes[iconColor + "CardHeader"],
-          avatar: classes.cardAvatar
-        }}
-        avatar={<props.icon className={classes.cardIcon} />}
-      />
+      <div className={classes.cardTop}>
+        <CardHeader
+          classes={{
+            root: classes.cardHeader + " " + classes[iconColor + "CardHeader"],
+            avatar: classes.cardAvatar
+          }}
+          avatar={<props.icon className={classes.cardIcon} />}
+        />
+        <div className={classes.cardTopContent}>{top}</div>
+        <div className={classes.cardTopFinish} />
+      </div>
+
       <CardContent className={classes.cardContent}>
-        <div className={classes.cardTitle}>{title}</div>
         <div className={classes.cardBody}>{children}</div>
       </CardContent>
     </Card>
@@ -24,8 +28,7 @@ function IconCard({ ...props }) {
 }
 
 IconCard.defaultProps = {
-  iconColor: "purple",
-  statIconColor: "gray"
+  iconColor: "purple"
 };
 
 IconCard.propTypes = {
