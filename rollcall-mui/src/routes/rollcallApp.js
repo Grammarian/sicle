@@ -1,8 +1,9 @@
 import DashboardPage from "../containers/DashboardPage.js";
 import AttendancePage from "../containers/AttendancePage/AttendancePage.js";
 import StudentsPage from "../containers/StudentsPage.js";
+import GeoPage from "../containers/GeoPage/GeoPage.js";
 
-import { Dashboard, Person, CheckCircle } from "material-ui-icons";
+import { Dashboard, Person, CheckCircle, Map } from "material-ui-icons";
 
 const rollCallAppRoutes = [
   {
@@ -25,6 +26,13 @@ const rollCallAppRoutes = [
     headerName: "Students",
     icon: Person,
     component: StudentsPage
+  },
+  {
+    path: "/geo",
+    sidebarName: "Map",
+    headerName: "Geo-location",
+    icon: Map,
+    component: GeoPage
   },
   { redirect: true, path: "/", to: "/dashboard", headerName: "Redirect" }
 ];
