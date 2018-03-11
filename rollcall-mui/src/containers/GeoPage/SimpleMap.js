@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import GoogleMapReact from "google-map-react";
 import { withStyles, Grid } from "material-ui";
 
+import Circle from "./Circle";
+
 const GoogleMapsApiKey = "AIzaSyDKWjy0uGL3y8aN0ZPlxnw3CrCG_wCP5uQ";
 
 const schools = [
@@ -53,21 +55,55 @@ const UgleReactComponent = ({ text }) => (
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class SimpleMap extends React.Component {
-  static defaultProps = {
+  state = {
     center: { lat: -33.8, lng: 150.8202351 },
     zoom: 9
   };
 
+  onBoundsChange = (center, zoom, bounds, marginBounds) => {
+    console.log("this.props.onBoundsChange", center, zoom, bounds, marginBounds);
+    this.setState({ center, zoom });
+  };
+
+  onChildClick = (key, childProps) => {
+    console.log("this.props.onChildClick", key, childProps);
+  };
+
+  onChildMouseEnter = (key /*, childProps */) => {
+    console.log("this.props.onChildMouseEnter", key);
+  };
+
+  onChildMouseLeave = (/* key, childProps */) => {
+    console.log("this.props.onChildMouseLeave");
+  };
+
+  calcWidthForPopulation = pop => {
+    return Math.log(pop) * 10;
+  };
+
   render() {
     const { classes } = this.props;
+    const { center, zoom } = this.state;
     return (
       <GoogleMapReact
         bootstrapURLKeys={{ key: GoogleMapsApiKey }}
         style={styles.map}
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
+        defaultCenter={center}
+        defaultZoom={zoom}
+        onBoundsChange={this.onBoundsChange}
+        onChildMouseEnter={this.onChildMouseEnter}
+        onChildMouseLeave={this.onChildMouseLeave}
       >
-        {schools.map(x => <AnyReactComponent lat={x.lat} lng={x.lng} text={x.name} />)}
+        {schools.map((x, i) => (
+          <Circle
+            key={i}
+            lat={x.lat}
+            lng={x.lng}
+            zoom={zoom}
+            text={x.name}
+            width={this.calcWidthForPopulation(x.students)}
+          />
+        ))}
       </GoogleMapReact>
     );
   }
