@@ -1,0 +1,549 @@
+LOCATION_NAME	LOC_ELECTORATE	LOC_S_ADDRESS1	LOC_S_SUBURB	LOC_S_STATE	LOC_S_POSTCODE
+Matraville PS	Maroubra	Bunnerong & Beauchamp Rds	MATRAVILLE	NSW	2036
+St Andrew's College-Holy Family Campus	Blacktown	116-132 Quakers Road	MARAYONG	NSW	2148
+Ashfield PS	Summer Hill	Liverpool Road	ASHFIELD	NSW	2131
+North Ryde PS	Ryde	Coxs Road	NORTH RYDE	NSW	2113
+Beverly Hills PS	Kogarah	King Georges Rd	BEVERLY HILLS	NSW	2209
+Bexley North PS	Rockdale	Kingsland Road	BEXLEY	NSW	2207
+Kingsgrove PS	Kogarah	Kingsgrove Road	KINGSGROVE	NSW	2208
+Lugarno PS	Oatley	Old Forest Road	LUGARNO	NSW	2210
+Peakhurst West PS	Oatley	Ogilvy Street	PEAKHURST	NSW	2210
+All Saints Greek Orthodox Church Hall	Canterbury	Isabel & Cecilia Sts	BELMORE	NSW	2192
+Nan Tian of Sydney	Parramatta	22 Cowper Street	PARRAMATTA	NSW	2150
+Eastlakes PS	Heffron	Florence Ave	EASTLAKES	NSW	2018
+Dong San Uniting Church	Parramatta	125 Great Western Highway	MAYS HILL	NSW	2145
+Mount Druitt PS	Londonderry	51 Belmore Avenue	MOUNT DRUITT	NSW	2770
+Auburn North PS	Auburn	Adderley Street	AUBURN	NSW	2144
+Wiley Park GHS	Lakemba	The Boulevarde	PUNCHBOWL	NSW	2196
+Burwood PS	Strathfield	1 Conder Street	BURWOOD	NSW	2134
+Trinity Grammar Preparatory School - Strathfield	Strathfield	125 The Boulevarde	STRATHFIELD	NSW	2135
+Auburn PS	Auburn	Auburn Rd & Beatrice Street	AUBURN	NSW	2144
+St Raphaels Greek School	Liverpool	19-29 Forbes Street	LIVERPOOL	NSW	2170
+Arabic Ethnic Education Society	Summer Hill	8 Leofrene Avenue	MARRICKVILLE	NSW	2204
+Latvian House	Strathfield	32 Parnell Street	STRATHFIELD	NSW	2135
+Eastwood PS	Ryde	Rowe Street	EASTWOOD	NSW	2122
+Beresford Road PS	Prospect	Beresford Road	PENDLE HILL SOUTH	NSW	2145
+Beverly Hills North PS	Lakemba	Shorter Ave/King Georges	BEVERLY HILLS	NSW	2209
+Camden PS	Camden	John Street	CAMDEN	NSW	2570
+Clemton Park PS	Canterbury	Bexley Road	EARLWOOD	NSW	2206
+Connells Point PS	Oatley	Riverview Avenue	HURSTVILLE SOUTH	NSW	2221
+Danebank Anglican School for Girls	Kogarah	84-96 Park Road	HURSTVILLE	NSW	2220
+Dulwich Hill PS	Summer Hill	Kintore Street	DULWICH HILL	NSW	2203
+Kyeemagh Infants	Rockdale	Beehag Street	ROCKDALE	NSW	2216
+McCallums Hill PS	Canterbury	McCallum Street	ROSELANDS	NSW	2196
+Panania PS	East Hills	Lawler Street	PANANIA	NSW	2213
+Peakhurst PS	Lakemba	Bonds Road	PEAKHURST	NSW	2210
+South Coogee PS	Coogee	Moverly Road	SOUTH COOGEE	NSW	2034
+Strathfield South PS	Strathfield	457 Liverpool Road	ENFIELD	NSW	2136
+Summer Hill PS	Canterbury	Moonbie Street	SUMMER HILL	NSW	2130
+Trinity Grammar School - Summer Hill	Canterbury	119 Prospect Road	SUMMER HILL	NSW	2130
+Our Lady of Fatima Portuguese School	Wollongong	127 Flagstaff Road	WARRAWONG	NSW	2502
+Warrawong HS	Wollongong	Cowper Street	WARRAWONG	NSW	2502
+Chatswood HS	Willoughby	Centennial Avenue	CHATSWOOD WEST	NSW	2067
+Hunters Hill PS	Lane Cove	Alexandra St	HUNTERS HILL	NSW	2110
+Lindsay Park PS	Keira	Thames Street	WOLLONGONG	NSW	2500
+Manly Vale PS	Manly	Sunshine Street	MANLY VALE	NSW	2093
+Manly Village PS	Manly	Darley Road	MANLY	NSW	2095
+Manly West PS	Manly	Griffith Street	BALGOWLAH	NSW	2093
+Martin Luther Lutheran Church - Sydney German	Sydney	96 Goulburn Street	SYDNEY	NSW	2000
+Online - La Perouse	Maroubra	22 Goorawahl Ave	LA PEROUSE	NSW	2036
+Rainbow St PS	Coogee	Rainbow Street	RANDWICK	NSW	2031
+St Ives PS	Davidson	Horace Street	ST IVES	NSW	2075
+Sutherland PS	Heathcote	Eton Street	SUTHERLAND	NSW	2232
+Woodport PS	Terrigal	The Entrance Road	ERINA	NSW	2250
+Cleveland Street Intensive English HS	Sydney	Cleveland & Chalmer Sts	SURRY HILLS	NSW	2010
+Bankstown PS	Bankstown	Restwell Street	BANKSTOWN	NSW	2200
+Burwood PS	Strathfield	1 Conder Street	BURWOOD	NSW	2134
+Canley Vale PS	Fairfield	Canley Vale Road	CANLEY VALE	NSW	2166
+Harcourt PS	Canterbury	First Ave	CAMPSIE	NSW	2194
+Lidcombe PS	Auburn	John Street	LIDCOMBE	NSW	2141
+Rockdale PS	Rockdale	Lord Street	ROCKDALE	NSW	2216
+Cringila Turkish School	Wollongong	4-6 Bethlehem Street	CRINGILA	NSW	2502
+Grays Point PS	Cronulla	Angle Road	GRAYS POINT	NSW	2232
+Naremburn PS	Willoughby	250 Willoughby Road	NAREMBURN	NSW	2065
+Port Hacking HS	Miranda	Kingsway	MIRANDA	NSW	2228
+Homebush PS	Strathfield	Rochester Street	HOMEBUSH	NSW	2140
+Chinese Presbyterian Church	Sydney	Crown & Albion Streets	SURRY HILLS	NSW	2010
+Sydney Young Nak Presbyterian Church - Telopea	Parramatta	7-9 Manson Street	TELOPEA	NSW	2117
+Fairfield West PS	Fairfield	Palmerston Road	FAIRFIELD WEST	NSW	2165
+Ryde PS	Ryde	Pope Street	RYDE	NSW	2112
+Girraween PS	Prospect	Bando Road	GIRRAWEEN	NSW	2145
+Amity College-Auburn	Auburn	26-29 Kerr Parade	AUBURN	NSW	2144
+Blacktown GHS	Blacktown	Fifth Avenue	BLACKTOWN	NSW	2148
+Parramatta West PS	Granville	Cnr Auburn & Young Streets	PARRAMATTA	NSW	2150
+Penrith PS	Penrith	High Street	PENRITH	NSW	2750
+Rydalmere PS	Parramatta	Victoria Road	RYDALMERE	NSW	2116
+Floraville PS	Swansea	Floraville Road	BELMONT	NSW	2280
+Lambton HS	Newcastle	Womboin & Young Rds	LAMBTON	NSW	2299
+Jesmond PS	Wallsend	Ralph Street	JESMOND	NSW	2299
+Jesmond PS	Wallsend	Ralph Street	JESMOND	NSW	2299
+Lambton PS	Wallsend	Croudace St	LAMBTON	NSW	2304
+Chatswood HS	Willoughby	Centennial Avenue	CHATSWOOD WEST	NSW	2067
+Cherrybrook Technology HS	Epping	Purchase Road	CHERRYBROOK	NSW	2126
+Epping BHS	Ryde	213 Vimiera Road	EASTWOOD	NSW	2122
+Flinders PS	Shellharbour	Adam Murray Way	FLINDERS	NSW	2529
+Artamon Guides Hall	Lane Cove	Thompson Avenue	ARTAMON	NSW	2064
+Glenwood PS	Macquarie Fields	Belmont Road	GLENFIELD	NSW	2167
+Smith's Hill HS	Wollongong	Gipps Road	WOLLONGONG	NSW	2500
+Westmead PS	Granville	Hawkesbury Road	WESTMEAD	NSW	2145
+Macedonia Park	Wollongong	Hooka Creek Road	BERKELEY	NSW	2506
+Illawarra Sports HS	Wollongong	Gura Street	BERKELEY	NSW	2506
+Serbian Language School	Wollongong	82 Kenny Street	WOLLONGONG	NSW	2500
+Clovelly PS	Coogee	Arden Street	WAVERLEY	NSW	2024
+Lane Cove PS	Lane Cove	Austin St & Longueville Roads	LANE COVE	NSW	2066
+Rose Bay PS	Vaucluse	Albermarle Street	ROSE BAY	NSW	2029
+South Coogee PS	Coogee	Moverly Road	COOGEE	NSW	2034
+St Ives North PS	Davidson	87 Memorial Avenue	ST IVES	NSW	2075
+Woollahra PS	Vaucluse	Forth Street	WOOLLAHRA	NSW	2025
+St Andrews Ukrainian School	Auburn	57 Church Street	LIDCOMBE	NSW	2141
+Northmead Creative and Performing Arts HS	Seven Hills	Campbell Street	NORTHMEAD	NSW	2152
+Muirfield HS	Baulkham Hills	Barclay Road	NORTH ROCKS	NSW	2150
+Yagoona PS	Bankstown	425 Hume Highway	YAGOONA	NSW	2199
+Peakhurst West PS	Oatley	Ogilvy Street	PEAKHURST	NSW	2210
+Manly Village PS	Manly	Darley Road	MANLY	NSW	2095
+Rockdale PS	Rockdale	Lord Street	ROCKDALE	NSW	2216
+Bonnyrigg PS	Cabramatta	Tarlington Parade	BONNYRIGG	NSW	2177
+Hampden Park PS	Lakemba	Hampden Rd	LAKEMBA	NSW	2195
+Hellenic Orthodox Parish & Community of Blacktown & District	Blacktown	47-49 Balmoral Street	BLACKTOWN	NSW	2148
+Epping PS	Epping	Norfolk Road	EPPING	NSW	2121
+John Purchase PS	Epping	Purchase Road	CHERRYBROOK	NSW	2126
+Thornleigh West PS	Epping	Giblett Ave	THORNLEIGH	NSW	2120
+Waitara PS	Ku-ring-gai	Edgeworth David Avenue	WAHROONGA	NSW	2077
+Greek Afternoon School	Wollongong	18 Stewart Street	WOLLONGONG	NSW	2500
+Homebush West PS	Strathfield	Exeter Road	HOMEBUSH WEST	NSW	2140
+Dundas PS	Parramatta	Kissing Point Road	DUNDAS	NSW	2117
+Berala PS	Auburn	32 Auburn Road	BERALA	NSW	2141
+Cabramatta PS	Cabramatta	Levuka Street	CABRAMATTA	NSW	2166
+Fairfield PS	Fairfield	68-82 Smart Street	FAIRFIELD	NSW	2165
+Harcourt PS	Canterbury	First Ave	CAMPSIE	NSW	2194
+Homebush West PS	Strathfield	Exeter Road	HOMEBUSH WEST	NSW	2140
+Parramatta PS	Parramatta	Macquarie St	PARRAMATTA	NSW	2150
+Cabramatta PS	Cabramatta	Levuka Street	CABRAMATTA	NSW	2166
+Canley Vale PS	Fairfield	Canley Vale Road	CANLEY VALE	NSW	2166
+Harrington Street PS	Cabramatta	Harrington Street	CABRAMATTA	NSW	2166
+Holy Spirit College - Lakemba	Lakemba	39 Croydon Street	LAKEMBA	NSW	2195
+La Salle Catholic - Bankstown	Bankstown	544 Chapel Rd	BANKSTOWN	NSW	2200
+St Brigid's Primary - Marrickville	Summer Hill	392A Marrickville Rd	MARRICKVILLE	NSW	2204
+Villawood North PS - Bligh St	Fairfield	Bligh Street	FAIRFIELD EAST	NSW	2165
+Green Valley PS	Liverpool	Green Valley Rd	GREEN VALLEY	NSW	2168
+Homebush PS	Strathfield	Rochester Street	HOMEBUSH	NSW	2140
+Marrickville West PS	Summer Hill	Livingstone Road	MARRICKVILLE	NSW	2204
+St Charbel's College - Punchbowl	Lakemba	142 Highclere Avenue	PUNCHBOWL	NSW	2196
+Rosehill PS	Parramatta	Prospect Street	ROSEHILL	NSW	2142
+Ashfield BHS	Summer Hill	117 Liverpool Road	ASHFIELD	NSW	2131
+Cardiff North PS	Wallsend	Wansbeck Valley Road	CARDIFF	NSW	2285
+Holsworthy PS	Holsworthy	Infantry Pde	HOLSWORTHY	NSW	2173
+Hornsby North PS	Hornsby	Ida Street	HORNSBY	NSW	2077
+Quakers Hill HS	Riverstone	Lalor Road	QUAKERS HILL	NSW	2763
+Seven Hills West PS	Blacktown	Lucas Rd & Sackville St	SEVEN HILLS	NSW	2147
+King Park PS	Fairfield	Humphries Road	ST JOHNS PARK	NSW	2176
+Phuoc Hue Temple Wetherill Park	Prospect	365 Victoria Street	WETHERILL PARK	NSW	2164
+Cabramatta West PS	Cabramatta	Broad Street	CABRAMATTA	NSW	2166
+Free Serbian Orthodox Church	Cabramatta	348 Cabramatta Road	CABRAMATTA	NSW	2166
+Mercy College	Willoughby	101 Archer Street	CHATSWOOD	NSW	2067
+Bankstown GHS	Bankstown	Mona Street	BANKSTOWN	NSW	2200
+Bonnyrigg HS	Cabramatta	Elizabeth Drive	BONNYRIGG	NSW	2177
+Cabramatta PS	Cabramatta	Levuka Street	CABRAMATTA	NSW	2166
+Cabramatta West PS	Cabramatta	Broad Street	CABRAMATTA	NSW	2166
+Fairvale PS	Fairfield	The Wolseley Drive	FAIRFIELD	NSW	2165
+Marrickville HS	Summer Hill	Northcote Street	MARRICKVILLE	NSW	2204
+Amity College - Auburn	Auburn	26-28 Kerr Parade	AUBURN	NSW	2144
+Australian Bosnian & Herzegovinian Cultural Association - Leppington	Camden	205 Bringelly Road	LEPPINGTON	NSW	2179
+Australian Bosnian Islamic Society Gazi Husrev-beg-Penshurst	Oatley	447 Forest  Road	PENSHURST	NSW	2164
+Australian Bosnian Islamic Society Gazi Husrev-beg-Smithfield	Prospect	30 Bourke Street	SMITHFIELD	NSW	2164
+Moorefield GHS	Rockdale	Princes Highway	KOGARAH	NSW	2217
+Chullora PS	Lakemba	Norfolk& Waterloo Rds	GREENACRE	NSW	2190
+McCallums Hill PS	Canterbury	McCallum Street	ROSELANDS	NSW	2196
+Merrylands PS	Granville	Fowler Road	MERRYLANDS	NSW	2160
+Cherrybrook Technology HS	Epping	Purchase Road	CHERRYBROOK	NSW	2126
+St Nicholas Greek Orthodox Church	Summer Hill	203 Livingstone Road	MARRICKVILLE	NSW	2204
+Punchbowl BHS	Bankstown	Kelly Street	PUNCHBOWL	NSW	2196
+Blacktown GHS	Blacktown	Fifth Avenue	BLACKTOWN	NSW	2148
+Chatswood PS	Willoughby	Pacific Hwy	CHATSWOOD	NSW	2067
+Marsden HS - West Ryde	Ryde	Winbourne Ave	WEST RYDE	NSW	2114
+Sydney Full Gospel Church	Bankstown	204 Waterloo Road	GREENACRE	NSW	2190
+Bankstown West PS	Bankstown	William Street	BANKSTOWN WEST	NSW	2200
+Lurnea PS	Holsworthy	Reilly Street	LURNEA	NSW	2170
+Old Guildford PS	Fairfield	Woodville Road	GUILDFORD	NSW	2161
+Cabramatta PS	Cabramatta	Levuka Street	CABRAMATTA	NSW	2166
+Chester Hill PS	Auburn	Proctor Pde	CHESTER HILL	NSW	2162
+St Johns Park PS	Cabramatta	Sandringham Street	ST JOHNS PARK	NSW	2176
+James Ruse Agricultural HS	Parramatta	Felton Road	CARLINGFORD	NSW	2118
+St Ives HS	Davidson	Yarrabung Rd	ST IVES	NSW	2075
+Matraville PS	Maroubra	Bunnerong & Beauchamp Rds	MATRAVILLE	NSW	2036
+Australian Islamic Mission (AIM) Hall - Punchbowl	Lakemba	25-29 Matthews Street	PUNCHBOWL	NSW	2196
+Miller PS	Liverpool	Shropshire Street	MILLER	NSW	2168
+St Joachim's - Lidcombe	Auburn	7 Mary Street	LIDCOMBE	NSW	2141
+Pennant Hills HS	Hornsby	Laurence Street	PENNANT HILLS	NSW	2120
+Bellevue Hill PS	Vaucluse	Victoria Road	BELLEVUE HILL	NSW	2023
+Auburn PS	Auburn	Auburn Rd & Beatrice Street	AUBURN	NSW	2144
+Fairvale PS	Fairfield	The Wolseley Drive	FAIRFIELD	NSW	2165
+Harrington Street PS	Cabramatta	Harrington Street	CABRAMATTA	NSW	2166
+Regents Park PS	Bankstown	1 Auburn Road	REGENTS PARK	NSW	2143
+Cammeray PS	Willoughby	Palmer Street	CAMMERAY	NSW	2062
+Hannans Road PS	Lakemba	Hannans Road	RIVERWOOD	NSW	2210
+Dubbo South PS	Dubbo	Fitzroy Street	DUBBO	NSW	2830
+Marayong South PS	Blacktown	McClean Street	BLACKTOWN	NSW	2148
+Mayfield West PS	Newcastle	Gregson Avenue	MAYFIELD	NSW	2304
+Minto PS	Macquarie Fields	Pembroke & Redfern Rds	MINTO	NSW	2566
+Parramatta North PS	Parramatta	Albert Street	NORTH PARRAMATTA	NSW	2150
+Sturt PS	Wagga Wagga	White Avenue	WAGGA WAGGA	NSW	2650
+The Ponds HS	Riverstone	Wentworth Street	THE PONDS	NSW	2769
+Darcy Road PS	Seven Hills	Darcy Road	WENTWORTHVILLE	NSW	2145
+Eastwood PS	Ryde	Rowe Street	EASTWOOD	NSW	2122
+Holsworthy PS	Holsworthy	Infantry Pde	HOLSWORTHY	NSW	2173
+Hornsby South PS	Hornsby	Clarke Road	HORNSBY	NSW	2077
+Strathfield South PS	Strathfield	457 Liverpool Road	ENFIELD	NSW	2136
+James Busby HS	Liverpool	Rundle Road	BUSBY	NSW	2168
+Lansvale PS	Cabramatta	Chancery Street	CANLEY VALE	NSW	2166
+Denistone East PS	Ryde	Lovell Road	EASTWOOD	NSW	2122
+Epping West PS	Epping	Carlingford Road	EPPING	NSW	2121
+Turramurra HS	Ku-ring-gai	Maxwell Street	SOUTH TURRAMURRA	NSW	2074
+Australian Confucius Mencius Morality Society Hall	Rockdale	590-592 Forrest Road	BEXLEY	NSW	2207
+Georges River College Penshurst Girls Campus	Oatley	2 Austral Street	PENSHURST	NSW	2222
+Parramatta PS	Parramatta	Macquarie St	PARRAMATTA	NSW	2150
+Willoughby GHS	Willoughby	Mowbray Road	WILLOUGHBY	NSW	2068
+Polish Association in Wollongong Inc	Wollongong	143 Gipps Road	GWYNNEVILLE	NSW	2500
+Ashfield BHS	Summer Hill	117 Liverpool Road	ASHFIELD	NSW	2131
+Ashfield PS	Summer Hill	Liverpool Road	ASHFIELD	NSW	2131
+Campsie PS	Canterbury	Harold Street	CAMPSIE	NSW	2194
+Canterbury BHS	Canterbury	Holden Street	CANTERBURY	NSW	2193
+North Sydney PS (Demonstration School)	North Shore	Bay Road	NORTH SYDNEY	NSW	2060
+Green Valley PS	Liverpool	Green Valley Rd	GREEN VALLEY	NSW	2168
+Epping West PS	Epping	Carlingford Road	EPPING	NSW	2121
+Ashfield PS	Summer Hill	Liverpool Road	ASHFIELD	NSW	2131
+Castle Hill HS	Castle Hill	Castle Street	CASTLE HILL	NSW	2154
+Co.As.It. School	Balmain	67 Norton Street	LEICHHARDT	NSW	2040
+Earlwood PS	Canterbury	Homer Street	EARLWOOD	NSW	2206
+Five Dock PS	Drummoyne	Henry Street	FIVE DOCK	NSW	2046
+Gladesville PS	Lane Cove	Victoria Road	GLADESVILLE	NSW	2111
+Italian Bilingual School	Ryde	30 See Street	MEADOWBANK	NSW	2114
+Kegworth PS	Balmain	Tebbutt Street	LEICHHARDT	NSW	2040
+New Lambton South PS	Charlestown	St James Road	NEW LAMBTON	NSW	2305
+St Catherine of Siena Primary - Prestons	Holsworthy	Dalmeny Drive	PRESTONS	NSW	2170
+St Johns Park HS	Cabramatta	Mimosa Road	ST JOHNS PARK	NSW	2176
+St Joseph's Primary - Oatley	Oatley	21 Rosa Street	OATLEY	NSW	2223
+St Madeleine's Primary - Kenthurst	Castle Hill	28 Annangrove Road	KENTHURST	NSW	2158
+Woollahra PS	Vaucluse	Forth Street	WOOLLAHRA	NSW	2025
+Quakers Hill HS	Riverstone	Lalor Road	QUAKERS HILL	NSW	2763
+Wilkins PS	Marrickville	Park Road	MARRICKVILLE	NSW	2204
+Parramatta HS	Parramatta	Great Western Road	PARRAMATTA	NSW	2150
+St George Parish Centre	Vaucluse	96 Newcastle Street	ROSE BAY	NSW	2029
+Colyton PS	Mount Druitt	Nelson Street	MOUNT DRUITT	NSW	2770
+Eastwood PS	Ryde	Rowe Street	EASTWOOD	NSW	2122
+Moslem Alawy Society Arabic School	Bankstown	178 Cooper Road	YAGOONA	NSW	2199
+Fairfield HS	Fairfield	The Horsley Drive	FAIRFIELD	NSW	2165
+St Johns Park HS	Cabramatta	Mimosa Road	ST JOHNS PARK	NSW	2176
+Canterbury South PS	Canterbury	High Street	CANTERBURY	NSW	2193
+Earlwood PS	Canterbury	Homer Street	EARLWOOD	NSW	2206
+Undercliffe PS	Canterbury	Bayview Avenue	EARLWOOD	NSW	2206
+Newington College	Newtown	200 Stanmore Road	STANMORE	NSW	2048
+St Stylianos Greek School	Miranda	810 The Kingsway	GYMEA	NSW	2227
+Tharawal PS	Menai	Gerald Rd	MENAI	NSW	2234
+Concord West PS	Drummoyne	64 Concord Road	CONCORD WEST	NSW	2138
+Randwick BHS	Coogee	Rainbow & Avoca Sts	RANDWICK	NSW	2031
+Australian Croatian Club Braca Radic	Riverstone	79 South Street	SCHOFIELDS	NSW	2762
+Beverly Hills Intensive Language Centre	Kogarah	Melvin North Street	BEVERLY HILLS	NSW	2209
+Bonnyrigg PS	Cabramatta	Tarlington Parade	BONNYRIGG	NSW	2177
+Drummoyne PS	Drummoyne	Rawson Ave	DRUMMOYNE	NSW	2047
+St Gerasimos Church Leichhardt	Balmain	21 Henry Street	LEICHHARDT	NSW	2040
+Berala PS	Auburn	32 Auburn Road	BERALA	NSW	2141
+Dulwich Hill PS	Summer Hill	Kintore Street	DULWICH HILL	NSW	2203
+Cabramatta  Adventist Community Centre Hall	Cabramatta	Broomfield & Fisher Sts	CABRAMATTA	NSW	2166
+Bonnyrigg PS	Cabramatta	Tarlington Parade	BONNYRIGG	NSW	2177
+St John's Greek Orthodox School	Parramatta	163-165 George Street	PARRAMATTA	NSW	2150
+Connells Point PS	Oatley	Riverview Avenue	HURSTVILLE SOUTH	NSW	2221
+Harcourt PS	Canterbury	First Ave	CAMPSIE	NSW	2194
+Hurstville PS	Kogarah	Forest Road	HURSTVILLE	NSW	2220
+Kogarah HS	Kogarah	Regent Street	KOGARAH	NSW	2217
+Ashfield PS	Summer Hill	Liverpool Road	ASHFIELD	NSW	2131
+Lidcombe PS	Auburn	John Street	LIDCOMBE	NSW	2141
+Meadows PS	Seven Hills	Fuller Street	SEVEN HILLS	NSW	2147
+Mission Centre Punjabi School	Macquarie Fields	170 Ninth Avenue	AUSTRAL	NSW	2171
+Auburn West PS	Auburn	Chiswick Road	AUBURN	NSW	2144
+Port Hacking HS	Miranda	Kingsway	MIRANDA	NSW	2228
+Canterbury PS	Canterbury	Church Street	CANTERBURY	NSW	2193
+Burwood GHS	Strathfield	Queen Street	CROYDON	NSW	2132
+North Sydney PS (Demonstration School)	North Shore	Bay Road	NORTH SYDNEY	NSW	2060
+St Spyridon College - Private: Kingsford	Heffron	26-30 Bruce Street	KINGSFORD	NSW	2032
+Bonnyrigg PS	Cabramatta	Tarlington Parade	BONNYRIGG	NSW	2177
+Belmore BHS	Canterbury	Burwood Road	BELMORE	NSW	2192
+Belmore North PS	Canterbury	201 Burwood Road	BELMORE	NSW	2192
+LMA Islamic Community Centre	Lakemba	71-75 Wangee Road	LAKEMBA	NSW	2159
+Mount Pritchard PS - Meadows Rd	Cabramatta	Meadows Road	MOUNT PRITCHARD	NSW	2170
+Prestons PS	Holsworthy	Kurrajong & Box Rds	PRESTONS	NSW	2170
+Punchbowl PS	Lakemba	Canterbury Road	PUNCHBOWL	NSW	2196
+Robert Townson HS	Macquarie Fields	Shuttleworth Ave	RABY	NSW	2560
+Sefton HS	Bankstown	Munro & Hector Sts	SEFTON	NSW	2162
+Greek Orthodox Community of Bankstown	Bankstown	6-12 East Terrace	BANKSTOWN	NSW	2200
+Epping Heights PS	Epping	Kent Street	EPPING	NSW	2121
+Cabramatta HS	Cabramatta	Aladore Avenue	CABRAMATTA	NSW	2166
+Mascot PS	Heffron	King Street	MASCOT	NSW	2020
+Burwood GHS	Strathfield	Queen Street	CROYDON	NSW	2132
+Bald Face PS	Oatley	Stuart Street	BLAKEHURST	NSW	2221
+Brighton-Le-Sands PS	Rockdale	Crawford Road	ROCKDALE	NSW	2216
+Carlton PS	Kogarah	60 Cameron Street	BEXLEY	NSW	2207
+Carlton South PS	Kogarah	Jubilee Ave	CARLTON SOUTH	NSW	2218
+Greek Orth Community Hall	Kogarah	20 Belgrave Street	KOGARAH	NSW	2217
+Hurstville PS	Kogarah	Forest Road	HURSTVILLE	NSW	2220
+Mortdale PS	Oatley	Coleborne Avenue	MORTDALE	NSW	2223
+Ramsgate PS	Rockdale	Chuter Avenue	RAMSGATE	NSW	2217
+Sans Souci PS	Rockdale	Rock Point Road	SANS SOUCI	NSW	2219
+Canley Vale HS	Fairfield	Prospect Road	CANLEY VALE	NSW	2166
+Brookvale PS	Wakehurst	Old Pittwater Rd	BROOKVALE	NSW	2100
+St Michael's Greek Orthodox Church	North Shore	53-59 Holterman Street	CROWS NEST	NSW	2065
+Ashabul Kahfi Islamic Centre	Lakemba	11 Edge Street	WILEY PARK	NSW	2195
+Punchbowl PS	Lakemba	Canterbury Road	PUNCHBOWL	NSW	2196
+Horsley Park PS	Mulgoa	The Horsley Drive	HORSLEY PARK	NSW	2164
+Our Lady Of Lebanon College - Harris Park	Parramatta	40 Alice Street	HARRIS PARK	NSW	2150
+St George Maronite Church Thornleigh	Hornsby	2 Yarrara Road	THORNLEIGH	NSW	2120
+St John the Beloved Arabic School	Mount Druitt	63 George St	MOUNT DRUITT	NSW	2770
+St Joseph's Maronite CS - Croydon	Strathfield	7 Acton St.	CROYDON	NSW	2132
+Kogarah PS	Kogarah	Gladstone Street	KOGARAH	NSW	2217
+Marrickville HS	Summer Hill	Northcote Street	MARRICKVILLE	NSW	2204
+Summer Hill PS	Canterbury	Moonbie Street	SUMMER HILL	NSW	2130
+La Perouse PS	Maroubra	Yarra Road	LA PEROUSE	NSW	2036
+Ambarvale PS	Wollondilly	Copperfield Drive	AMBARVALE	NSW	2560
+Fairfield HS	Fairfield	The Horsley Drive	FAIRFIELD	NSW	2165
+St John Serbian Orthodox Church Hall	Shellharbour	20 Dale Street	DAPTO	NSW	2530
+Bass HS	Bankstown	Hume Hwy & Arundle Rd	BASS HILL	NSW	2197
+Auburn North PS	Auburn	Adderley Street	AUBURN	NSW	2144
+Uruguayan Social Sporting Club	Liverpool	56-62 Whitford Road	HINCHINBROOK	NSW	2168
+Ascham School	Vaucluse	188 New South Head Road	EDGECLIFF	NSW	2027
+Dundas PS	Parramatta	Kissing Point Road	DUNDAS	NSW	2117
+Ultimo PS	Sydney	Quarry Street	ULTIMO	NSW	2007
+Bankstown Senior College	East Hills	Antwerp Street	BANKSTOWN	NSW	2200
+Beverly Hills North PS	Lakemba	Shorter Ave/King Georges	BEVERLY HILLS	NSW	2209
+Sydney Juan Church	Ryde	7 Maxim Street	RYDE	NSW	2114
+Burwood PS	Strathfield	1 Conder Street	BURWOOD	NSW	2134
+Roselea PS	Epping	North Rocks Road	CARLINGFORD	NSW	2118
+EFKS Sydney	Oatley	977 Forest Road	LUGARNO	NSW	2210
+St Nicholas Arabic School	Lakemba	11 Henry Street	PUNCHBOWL	NSW	2196
+Phap Bao Pagoda	Cabramatta	Phap Bao Pagoda,148-154 Edensor Road	ST JOHNS PARK	NSW	2176
+Casula PS	Holsworthy	De Meyrick Ave	CASULA	NSW	2170
+Australian Sikh Association Temple	Macquarie Fields	8 Meurants Lane	GLENWOOD	NSW	2768
+Garden Suburb PS	Charlestown	2A Prospect Road	GARDEN SUBURB	NSW	2289
+Auburn North PS	Auburn	Adderley Street	AUBURN	NSW	2144
+Nabi Akram Islamic Centre	Granville	36 Cowper Street	GRANVILLE	NSW	2142
+Doonside HS	Blacktown	Power Street	DOONSIDE	NSW	2767
+Granville PS	Granville	Lena St	GRANVILLE	NSW	2142
+Clemton Park PS	Canterbury	Bexley Road	EARLWOOD	NSW	2206
+Fairfield PS	Fairfield	68-82 Smart Street	FAIRFIELD	NSW	2165
+Grange PS	Macquarie Fields	Benham Road	MINTO	NSW	2566
+Sydney Korean Uniting Church - Strathfield	Strathfield	98-102 Albert Road	STRATHFIELD	NSW	2135
+Banksia Road PS	Lakemba	65 Banksia Road	GREENACRE	NSW	2190
+Granville PS	Granville	Lena St	GRANVILLE	NSW	2142
+Kingsgrove PS	Kogarah	Kingsgrove Road	KINGSGROVE	NSW	2208
+Wiley Park GHS	Lakemba	The Boulevarde	PUNCHBOWL	NSW	2196
+Brookvale PS	Wakehurst	Old Pittwater Rd	BROOKVALE	NSW	2100
+Brunswick Heads PS	Ballina	2 Fingal Street	BRUNSWICK HEADS	NSW	2483
+Byron Bay PS	Ballina	17 Kingsley Street	BYRON BAY	NSW	2481
+Killarney Heights PS	Wakehurst	Tralee Avenue	KILLARNEY HEIGHTS	NSW	2087
+Maroubra Bay PS	Maroubra	Duncan Street	MAROUBRA	NSW	2035
+Mona Vale PS	Pittwater	Waratah Street	MONA VALE	NSW	2103
+North Sydney PS (Demonstration School)	North Shore	Bay Road	NORTH SYDNEY	NSW	2060
+Petersham PS	Summer Hill	West Street	PETERSHAM	NSW	2049
+Samuel Gilbert PS	Castle Hill	Ridgecrop Drive	CASTLE HILL	NSW	2154
+Waverley PS	Coogee	Bronte Rd	WAVERLEY	NSW	2024
+Randwick BHS	Coogee	Rainbow & Avoca Sts	RANDWICK	NSW	2031
+St Sava Serbian Orthodox Church Hall	Pittwater	Wilson St	ELANORA HEIGHTS	NSW	2101
+Yagoona PS	Bankstown	425 Hume Highway	YAGOONA	NSW	2199
+Leppington PS	Camden	Rickard Road	LEPPINGTON	NSW	2171
+Lewisham PS	Summer Hill	The Boulevard	LEWISHAM	NSW	2049
+Canterbury BHS	Canterbury	Holden Street	CANTERBURY	NSW	2193
+Bankstown West PS	Bankstown	William Street	BANKSTOWN WEST	NSW	2200
+Chipping Norton PS	Holsworthy	Central Avenue	CHIPPING NORTON	NSW	2170
+Northern Beaches Secondary College Balgowlah Boys Campus	Manly	Maretimo Street	BALGOWLAH	NSW	2093
+Roselea PS	Epping	North Rocks Road	CARLINGFORD	NSW	2118
+Strathfield North PS	Strathfield	Concord Rd	STRATHFIELD NTH	NSW	2137
+West Ryde PS	Ryde	Endeavour St	WEST RYDE	NSW	2114
+Blakehurst HS	Kogarah	Woniora Road	BLAKEHURST	NSW	2221
+Peakhurst PS	Lakemba	Bonds Road	PEAKHURST	NSW	2210
+Good News Korean School	Auburn	72-74 Joseph Street	LIDCOMBE	NSW	2141
+Birrong PS	Bankstown	130 Auburn Road	BIRRONG	NSW	2143
+Wiley Park GHS	Lakemba	The Boulevarde	PUNCHBOWL	NSW	2196
+Beverly Hills Intensive Language Centre	Kogarah	Melvin North Street	BEVERLY HILLS	NSW	2209
+Thomas Acres PS	Wollondilly	Crisparkle Drive	AMBARVALE	NSW	2560
+Merrylands HS	Fairfield	Bristol St	GUILDFORD	NSW	2160
+Stanmore PS	Marrickville	Cambridge Street	STANMORE	NSW	2048
+Towradgi PS	Keira	Carters Lane	FAIRY MEADOW	NSW	2518
+Denistone East PS	Ryde	Lovell Road	EASTWOOD	NSW	2122
+Eastwood PS	Ryde	Rowe Street	EASTWOOD	NSW	2122
+Epping BHS	Ryde	213 Vimiera Road	EASTWOOD	NSW	2122
+Kent Road PS	Ryde	Kent & Herring Roads	EASTWOOD	NSW	2122
+Glendenning PS	Mount Druitt	Armitage Drive	GLENDENNING	NSW	2761
+Sri Guru Singh Sabha Inc	East Hills	14-18 The River Road	REVESBY	NSW	2212
+Casula PS	Holsworthy	De Meyrick Ave	CASULA	NSW	2170
+Sae Soon Presbyterian Church	Baulkham Hills	219A North Rocks Road	NORTH ROCKS	NSW	2151
+GDPT Bo De Minh Quang - Vietnamese Buddhist Youth of NSW	Cabramatta	28-32 Chadderton Street	LANSVALE	NSW	2166
+Auburn PS	Auburn	Auburn Rd & Beatrice Street	AUBURN	NSW	2144
+Fairfield PS	Fairfield	68-82 Smart Street	FAIRFIELD	NSW	2165
+Darcy Road PS	Seven Hills	Darcy Road	WENTWORTHVILLE	NSW	2145
+Glenwood PS	Macquarie Fields	Belmont Road	GLENFIELD	NSW	2167
+Marsden Road PS - Liverpool	Liverpool	Marsden Road	LIVERPOOL	NSW	2170
+Seven Hills PS	Blacktown	Lucas Rd & Morris Street	SEVEN HILLS	NSW	2147
+Blacktown BHS	Blacktown	Sunnyholt Rd 7 Fifth Avenue	BLACKTOWN	NSW	2148
+Epping West PS	Epping	Carlingford Road	EPPING	NSW	2121
+Punchbowl BHS	Bankstown	Kelly Street	PUNCHBOWL	NSW	2196
+Athelstane PS	Rockdale	Athelstane Avenue	ARNCLIFFE	NSW	2205
+Baulkham Hills HS	Baulkham Hills	Windsor Road	BAULKHAM HILLS	NSW	2153
+Matraville PS	Maroubra	Bunnerong & Beauchamp Rds	MATRAVILLE	NSW	2036
+St Marys South PS	Londonderry	Monfarville St	ST MARYS	NSW	2760
+Newington PS	Auburn	Newington Boulevarde	NEWINGTON	NSW	2127
+Korean Central Presbyterian Church	Strathfield	72-80 Burwood Road	BELFIELD	NSW	2191
+Ringrose PS	Granville	Ringrose Avenue	WENTWORTHVILLE	NSW	2145
+Rouse Hill PS	Castle Hill	Clover Avenue	ROUSE HILL	NSW	2155
+Hampden Park PS	Lakemba	Hampden Rd	LAKEMBA	NSW	2195
+Sydney Cheil Church	Strathfield	7 Sydney St	CONCORD	NSW	2137
+Rockdale PS	Rockdale	Lord Street	ROCKDALE	NSW	2216
+Bossley Park PS	Prospect	Marconi Road	BOSSLEY PARK	NSW	2176
+Blacktown GHS	Blacktown	Fifth Avenue	BLACKTOWN	NSW	2148
+Hampden Park PS	Lakemba	Hampden Rd	LAKEMBA	NSW	2195
+Alexandria Park Community School	Heffron	Park Road	ALEXANDRIA	NSW	2015
+Queanbeyan HS	Monaro	Agnes Avenue	QUEANBEYAN	NSW	2620
+Pymble PS	Ku-ring-gai	Rushall Street	PYMBLE	NSW	2073
+Waitara PS	Ku-ring-gai	Edgeworth David Avenue	WAHROONGA	NSW	2077
+Bonnyrigg Mosque	Cabramatta	Lot 455 Bibbys Pl	BONNYRIGG	NSW	2177
+Auburn PS	Auburn	Auburn Rd & Beatrice Street	AUBURN	NSW	2144
+Bonnyrigg HS	Cabramatta	Elizabeth Drive	BONNYRIGG	NSW	2177
+Ryde Secondary College	Lane Cove	5 Malvina St	RYDE	NSW	2112
+Willoughby PS	Willoughby	Oakville Road	WILLOUGHBY	NSW	2068
+Hornsby North PS	Hornsby	Ida Street	HORNSBY	NSW	2077
+Normanhurst BHS	Ku-ring-gai	Pennant Hills Road	NORMANHURST	NSW	2076
+Wahroonga PS	Ku-ring-gai	71 Burns Road	WAHROONGA	NSW	2076
+Mandaean Resource Centre - Liverpool	Liverpool	70 Moore Street	LIVERPOOOL	NSW	2170
+Green Square School	Heffron	237 Botany Road	WATERLOO	NSW	2017
+Our Lady Of Lourdes Primary School - Baulkham Hills	Baulkham Hills	Oakland Avenue	BAULKHAM HILLS	NSW	2153
+Terra Sancta College - Schofields	Riverstone	85 Hambledon Rd	SCHOFIELDS	NSW	2762
+Hannans Road PS	Lakemba	Hannans Road	RIVERWOOD	NSW	2210
+Marayong Heights PS	Blacktown	Shedworth Street	MARAYONG	NSW	2148
+Chipping Norton PS	Holsworthy	Central Avenue	CHIPPING NORTON	NSW	2170
+Crestwood HS	Baulkham Hills	17 Chapel Lane	BAULKHAM HILLS	NSW	2153
+Homebush BHS	Strathfield	Bridge Road	HOMEBUSH	NSW	2140
+Metella Road PS	Prospect	Metella Road	TOONGABBIE	NSW	2146
+Nuwarra PS	Holsworthy	McKay Avenue	MOOREBANK	NSW	2170
+Roselea PS	Epping	North Rocks Road	CARLINGFORD	NSW	2118
+The Ponds HS	Riverstone	180 Riverbank Drive	THE PONDS	NSW	2769
+Waitara PS	Ku-ring-gai	Edgeworth David Avenue	WAHROONGA	NSW	2077
+Killarney Heights HS	Wakehurst	Starkey Street	KILLARNEY HEIGHTS	NSW	2087
+Hambledon PS	Riverstone	Bali Drive	QUAKERS HILL	NSW	2763
+Crestwood PS	Baulkham Hills	38 Peel Road	BAULKHAM HILLS	NSW	2153
+Kellyville PS	Castle Hill	Windsor Road	KELLYVILLE	NSW	2155
+Matthew Pearce PS	Baulkham Hills	Astoria Park Road	BAULKHAM HILLS	NSW	2153
+Sherwood Ridge PS	Castle Hill	Rosebery Road	KELLYVILLE	NSW	2155
+Auburn Diversity Services	Auburn	17 Macquarie  Road	AUBURN	NSW	2144
+Amity College - Prestons	Holsworthy	163 Kurrajong Road	PRESTONS	NSW	2170
+Naremburn PS	Willoughby	250 Willoughby Road	NAREMBURN	NSW	2065
+Campsie PS	Canterbury	Harold Street	CAMPSIE	NSW	2194
+Granville PS	Granville	Lena St	GRANVILLE	NSW	2142
+Ingleburn PS	Macquarie Fields	Oxford Road	INGLEBURN	NSW	2565
+Penshurst PS	Oatley	Arcadia Street	PENSHURST	NSW	2222
+The Ponds HS	Riverstone	Wentworth Street	THE PONDS	NSW	2769
+Waitara PS	Ku-ring-gai	Edgeworth David Avenue	WAHROONGA	NSW	2077
+Mulwaree HS	Goulburn	40 McDermott Drive	GOULBURN	NSW	2580
+St Sava Serbian Orthodox Church School (Flemington)	Strathfield	34 Hamstead Road	HOMEBUSH WEST	NSW	2140
+Jannali HS	Miranda	Sutherland Road	JANNALI	NSW	2226
+Thornleigh West PS	Epping	Giblett Ave	THORNLEIGH	NSW	2120
+Brookvale PS	Wakehurst	Old Pittwater Rd	BROOKVALE	NSW	2100
+Epping West PS	Epping	Carlingford Road	EPPING	NSW	2121
+Gladesville PS	Lane Cove	Victoria Road	GLADESVILLE	NSW	2111
+Lindfield PS	Ku-ring-gai	Pacific Highway	LINDFIELD	NSW	2070
+Neutral Bay PS	North Shore	Ben Boyd Road	NEUTRAL BAY	NSW	2086
+Warrawee PS	Ku-ring-gai	Pacific Hwy	TURRAMURRA	NSW	2074
+York PS	Penrith	Evan Street	PENRITH SOUTH	NSW	2750
+Halinda PS	Londonderry	Karangi Road	WHALAN	NSW	2770
+Green Square School	Heffron	237 Botany Road	WATERLOO	NSW	2017
+Leumeah HS	Macquarie Fields	Junction Road	LEUMEAH	NSW	2560
+Marrickville West PS	Summer Hill	Livingstone Road	MARRICKVILLE	NSW	2204
+Smith's Hill HS	Wollongong	Gipps Road	WOLLONGONG	NSW	2500
+Al Bayan Institute - Regents Park	Bankstown	22-24 Auburn Road	REGENTS PARK	NSW	2143
+Moorefield GHS	Rockdale	Princes Highway	KOGARAH	NSW	2217
+Mount Colah PS	Hornsby	Telopea Street	MOUNT COLAH	NSW	2079
+Artarmon PS	Lane Cove	McMillan Road	ARTARMON	NSW	2064
+Campsie PS	Canterbury	Harold Street	CAMPSIE	NSW	2194
+Carlton PS	Kogarah	60 Cameron Street	BEXLEY	NSW	2207
+Northern Beaches Secondary College Mackellar Girls Campus	Manly	Campbell Parade	MANLY VALE	NSW	2093
+Marayong South PS	Blacktown	McClean Street	BLACKTOWN	NSW	2148
+Beverly Hills GHS	Kogarah	Broadarrow & King Georges Rds	BEVERLY HILLS	NSW	2209
+Plumpton House School	Mount Druitt	327 Rooty Hill Road	NORTH PLUMPTON	NSW	2761
+Macquarie Fields PS	Macquarie Fields	Field Road	MACQUARIE FIELDS	NSW	2564
+Cammeray PS	Willoughby	Palmer Street	CAMMERAY	NSW	2062
+Crown Street PS	Sydney	Crown Street	SURRY HILLS	NSW	2010
+Forestville PS	Wakehurst	Melwood Avenue	FORESTVILLE	NSW	2087
+Hunters Hill PS	Lane Cove	Alexandra St	HUNTERS HILL	NSW	2110
+St Ives HS	Davidson	Yarrabung Rd	ST IVES	NSW	2075
+Greystanes PS	Prospect	Merrylands Road	MERRYLANDS	NSW	2145
+Strathfield North PS	Strathfield	Concord Rd	STRATHFIELD NTH	NSW	2137
+Marsden Road PS - Liverpool	Liverpool	Marsden Road	LIVERPOOL	NSW	2170
+Belrose PS	Davidson	Ralston Avenue	BELROSE	NSW	2085
+Darfur Community Social and Cultural Association	Blacktown	118 Main Street	BLACKTOWN	NSW	2148
+Carlingford PS	Epping	Rickard Street	CARLINGFORD	NSW	2118
+Wollongong PS	Wollongong	Church Street	WOLLONGONG	NSW	2500
+Figtree HS	Keira	Gibsons Road	FIGTREE	NSW	2525
+Muhammadi Welfare Association Inc	Granville	419 Blaxcell Street	GRANVILLE	NSW	2142
+Seventh Day Adventist Church	Londonderry	Hythe Street	MOUNT DRUITT	NSW	2770
+St George GHS	Kogarah	Victoria Street	KOGARAH	NSW	2217
+Smiths Hill HS	Wollongong	Gipps Street	WOLLONGONG	NSW	2500
+Cyprus Community Club	Newtown	58 Stanmore Road	STANMORE	NSW	2048
+Smith's Hill HS	Wollongong	Gipps Road	WOLLONGONG	NSW	2500
+Slavic Pentecostal Church	Orange	33 Kearneys Drive	ORANGE	NSW	2800
+Arncliffe PS	Rockdale	Princes Hwy	ARNCLIFFE	NSW	2205
+Athelstane PS	Rockdale	Athelstane Avenue	ARNCLIFFE	NSW	2205
+Queanbeyan PS	Monaro	Isabella Street	QUEANBEYAN	NSW	2620
+Hamilton PS	Newcastle	Tudor Street	HAMILTON	NSW	2303
+Alfirdaus College-Blacktown Centre	Blacktown	7/45 Fourth Avenue	BLACKTOWN	NSW	2148
+Alfirdaus College-Liverpool Centre	Liverpool	Suite 5, 72-74 Bathurst Street	LIVERPOOL	NSW	2170
+Newington PS	Auburn	Newington Boulevarde	NEWINGTON	NSW	2127
+Cringila Lions FC	Wollongong	Meret Avenue	CRINGILA	NSW	2502
+Guildford Mosque	Granville	64 Mountford Avenue	GUILDFORD	NSW	2161
+The Ponds HS	Riverstone	Wentworth Street	THE PONDS	NSW	2769
+Revesby PS	East Hills	Victoria Street	REVESBY	NSW	2212
+Riverside GHS	Lane Cove	Huntley's Point Road	GLADESVILLE	NSW	2111
+Ingleburn HS	Macquarie Fields	Oxford Road	INGLEBURN	NSW	2565
+Ingleburn HS	Macquarie Fields	Oxford Road	INGLEBURN	NSW	2565
+Hornsby Heights PS	Hornsby	Sommerville Road	HORNSBY	NSW	2077
+St John The Baptist	Manly	7 Johnson Street	FRESHWATER	NSW	2096
+Hornsby GHS	Ku-ring-gai	Edgeworth David Avenue	HORNSBY	NSW	2077
+Henry Kendall HS	Gosford	Faunce Street	GOSFORD	NSW	2250
+Henry Kendall HS	Gosford	Faunce Street	GOSFORD	NSW	2250
+Wadalba Community School	Wyong	Orchid Way	WADALBA	NSW	2259
+Jesmond PS	Wallsend	Ralph Street	JESMOND	NSW	2299
+New Lambton South PS	Charlestown	St James Road	NEW LAMBTON	NSW	2305
+Newcastle HS	Newcastle	Park Way Avenue	HAMILTON	NSW	2303
+Polish Cultural Centre	Newcastle	122 Chatham Road	BROADMEADOW	NSW	2292
+Richard Johnson Anglican School	Mount Druitt	Hyatt Road	OAKHURST	NSW	2761
+Merewether HS	Newcastle	Chatham Road	BROADMEADOW	NSW	2292
+Girraween PS	Prospect	Bando Road	GIRRAWEEN	NSW	2145
+Granville PS	Granville	Lena St	GRANVILLE	NSW	2142
+John Colet School	Davidson	6 Wyatt Avenue	BELROSE	NSW	2085
+Mona Vale PS	Pittwater	Waratah Street	MONA VALE	NSW	2103
+ITSOWEL	Wollongong	21 Stewart Street	WOLLONGONG	NSW	2500
+Ferncourt PS	Summer Hill	Premier Street	MARRICKVILLE	NSW	2204
+Al Ghadir Youth Centre	Campbelltown	2/5 Hollylea Road	LEUMEAH	NSW	2560
+Holsworthy PS	Holsworthy	Infantry Pde	HOLSWORTHY	NSW	2173
+Wesley Castle Hill Uniting Church	Castle Hill	32-34 Showground Road	CASTLE HILL	NSW	2154
+Greek Community of Newcastle	Newcastle	27 Skelton Street	HAMILTON	NSW	2303
+Newcastle Sikh Association	Wallsend	27 Marton Street	SHORTLAND	NSW	2307
+South Coast Tibetan Community	South Coast	80a Park Road	NOWRA	NSW	2541
+Gudwara Singh Sabha Society	Murray	895 Kidman Way	GRIFFITH	NSW	2680
+Campsie PS	Canterbury	Harold Street	CAMPSIE	NSW	2194
+Gwynneville PS	Wollongong	Acacia Street	GWYNNEVILLE	NSW	2500
+Valley View PS	The Entrance	Chamberlain Road	WYOMING	NSW	2250
+Maitland HS	Maitland	High Street	MAITLAND EAST	NSW	2323
+Berkeley Neighbourhood Centre	Wollongong	Winnima Way	BERKELY	NSW	2506
+Callaghan College Jesmond	Wallsend	Janet St	JESMOND	NSW	2299
+Robert Townson PS	Macquarie Fields	Shuttleworth Avenue	RABY	NSW	2566
+Smith's Hill HS	Wollongong	Gipps Road	WOLLONGONG	NSW	2500
+Australian Catholic University	Strathfield	25A Barker Road	STRATHFIELD	NSW	2135
+Beaumont Hills PS	Castle Hill	The Parkway	BEAUMONT HILLS	NSW	2155
+Sinofield	Blue Mountains	77 Scott Avenue	LEURA	NSW	2780
+Croatian C C - Blacktown	Blacktown	70 Douglas Road	BLACKTOWN	NSW	2148
+Croatian Catholic Centre - St Johns Park	Cabramatta	86-90 Brisbane Road	ST JOHNS PARK	NSW	2176
+Croatian Catholic Centre - Summer Hill	Summer Hill	15 Prospect Road	SUMMER HILL	NSW	2130
+Croatian Catholic Centre - Wollongong	Keira	7 Bellevue Road	FIG TREE	NSW	2525
+Blakehurst HS	Kogarah	Woniora Road	BLAKEHURST	NSW	2221
+Castle Cove PS	Davidson	Kendall Road	CASTLE COVE	NSW	2069
+Holsworthy HS	Holsworthy	Huon Cres	HOLSWORTHY	NSW	2175
+Parramatta West PS	Granville	Cnr Auburn & Young Streets	PARRAMATTA	NSW	2150
+St Christophorus Hall	Strathfield	112 Edwin Street North	CROYDON	NSW	2132
+NCTA Turkish Language and Culture School	Granville	295 Clyde St	GRANVILLE SOUTH	NSW	2142
