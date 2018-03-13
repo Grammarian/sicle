@@ -1,32 +1,89 @@
 # The following types define the data model of the example service
 # based on which the GraphQL API is generated
 
-type School @model {
+# The parent organisation who is responsible for the school
+type Organisation @model {
   id: ID! @isUnique
-  name: String
   createdAt: DateTime!
   updatedAt: DateTime!
 
+  name: String
+  electorate: String
+  address: String
+  suburb: String
+  state: String
+  postcode: String
+
+  clpOrganisationId: String! @isUnique
+
+  schools: [School!]! @relation(name: "OrganisationSchools")
+}
+
+# The Community Language School
+type School @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  name: String
+  electorate: String
+  address: String
+  suburb: String
+  state: String
+  postcode: String
+
+  clpSchoolId: String! @isUnique
+  organisation: Organisation @relation(name: "OrganisationSchools")
+  locations: [Location!]! @relation(name: "SchoolLocations")
   students: [Student!]! @relation(name: "SchoolStudents")
   teachers: [Teacher!]! @relation(name: "SchoolTeachers")
 }
 
-type Student @model {
+# A physical location where classes are held, often a public school
+type Location @model {
   id: ID! @isUnique
-  givenNames: String
-  familyName: String
   createdAt: DateTime!
   updatedAt: DateTime!
+
+  name: String
+  electorate: String
+  address: String
+  suburb: String
+  state: String
+  postcode: String
+  clpLocationId: String! @isUnique
+
+  # Geo-location
+  lat: String
+  lng: String
+
+  schools: [School!]! @relation(name: "SchoolLocations")
+}
+
+type Student @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  givenNames: String
+  familyName: String
+  dateOfBirth: DateTime
+  phone: String
+  email: String
 
   school: School @relation(name: "SchoolStudents")
 }
 
 type Teacher @model {
   id: ID! @isUnique
-  givenNames: String
-  familyName: String
   createdAt: DateTime!
   updatedAt: DateTime!
+
+  givenNames: String
+  familyName: String
+  dateOfBirth: DateTime
+  phone: String
+  email: String
 
   school: School @relation(name: "SchoolTeachers")
 }

@@ -1,6 +1,8 @@
 from openpyxl import load_workbook
 import os.path
 
+import json
+import requests
 
 SOURCE_XLSX = "./Schools Locations Classes - Feb 2018.xlsx"
 TITLES = ["Organisation", "School", "Location", "IBN ID", "File No", "Language", "Classes",
@@ -13,7 +15,37 @@ def path_to_xlsx():
 
 
 def process_row(row):
-    print(tuple(x.value for x in row))
+    location = row[2].value
+    # print(tuple(x.value for x in row))
+    print(location)
+
+    payload = {
+        "key": "AIzaSyDQkcz38z2AbEYTuSIXDj66DEixa7LCDhs",
+        "query": location,
+        "type": "school"
+    }
+    response = requests.get(
+        "https://maps.googleapis.com/maps/api/place/textsearch/json", params=payload)
+    json_data = json.loads(response.text)
+    if json_data["status"] == "OK":
+        result1 = json_data["results"][0]
+        data = {
+            "name": result1["name"],
+            "found": True,
+            "lat": result1["geometry"]["location"]["lat"],
+            "lng": result1["geometry"]["location"]["lng"]
+        }
+        print(data)
+    else:
+        data = {
+            "name": result1["name"],
+            "found": False
+        }
+        print(data)
+
+
+def is_title_row(row):
+    return all(x.value == TITLES[i] for (i, x) in enumerate(row))
 
 
 def main():
@@ -24,8 +56,7 @@ def main():
         if found_titles:
             process_row(row)
         else:
-            found_titles = all(x.value == TITLES[i]
-                               for (i, x) in enumerate(row))
+            found_titles = is_title_row(row)
 
 
 if __name__ == "__main__":
