@@ -1,28 +1,29 @@
 # pip install openpyxl
 # pip install cuid
 import os.path
-import json
+import json 
 import datetime
+import itertools
 
 from openpyxl import load_workbook
 import cuid  # https://github.com/necaris/cuid.py - create uuid's in the format that graphcool expects
 
 
-SOURCE_XLSX = "./CLP-DATAEXTRACT.xlsx"
+SOURCE_XLSX = "./data/CLP-DATAEXTRACT.xlsx"
 SCHOOL_TITLES = ["ORGANISATION_ID", "ORGANISATION_NAME", "ORG_ELECTORATE", "P_ADDRESS1", "P_SUBURB", "P_STATE",
                  "P_POSTCODE", "S_ADDRESS1", "S_SUBURB", "S_STATE", "S_POSTCODE", "SCHOOL_NAME", "SCH_ELECTORATE",
                  "SCHOOL_ID", "SCHOOL_P_ADDRESS1",
                  "SCHOOL_P_SUBURB", "SCHOOL_P_STATE", "SCHOOL_P_POSTCODE", "SCHOOL_S_ADDRESS1", "SCHOOL_S_SUBURB",
                  "SCHOOL_S_STATE", "SCHOOL_S_POSTCODE", "LOCATION_NAME", "LOC_ELECTORATE", "LOC_S_ADDRESS1",
                  "LOC_S_SUBURB", "LOC_S_STATE", "LOC_S_POSTCODE"]
-ORGANISATION_FIELDS = {"ORGANISATION_ID": "CLS_ORGANISATION_ID", "ORGANISATION_NAME": "NAME",
+ORGANISATION_FIELDS = {"ORGANISATION_ID": "CLP_ORGANISATION_ID", "ORGANISATION_NAME": "NAME",
                        "ORG_ELECTORATE": "ELECTORATE", "S_ADDRESS1": "ADDRESS", "S_SUBURB": "SUBURB",
                        "S_STATE": "STATE", "S_POSTCODE": "POSTCODE", }
-SCHOOL_FIELDS = {"SCHOOL_NAME": "NAME", "SCH_ELECTORATE": "ELECTORATE", "SCHOOL_ID": "CLS_SCHOOL_ID",
-                 "ORGANISATION_ID": "CLS_ORGANISATION_ID",
+SCHOOL_FIELDS = {"SCHOOL_NAME": "NAME", "SCH_ELECTORATE": "ELECTORATE", "SCHOOL_ID": "CLP_SCHOOL_ID",
+                 "ORGANISATION_ID": "CLP_ORGANISATION_ID",
                  "SCHOOL_S_ADDRESS1": "ADDRESS", "SCHOOL_S_SUBURB": "SUBURB", "SCHOOL_S_STATE": "STATE",
                  "SCHOOL_S_POSTCODE": "POSTCODE", }
-LOCATION_FIELDS = {"LOCATION_NAME": "NAME", "LOC_ELECTORATE": "ELECTORATE", "SCHOOL_ID": "CLS_SCHOOL_ID",
+LOCATION_FIELDS = {"LOCATION_NAME": "NAME", "LOC_ELECTORATE": "ELECTORATE", "SCHOOL_ID": "CLP_SCHOOL_ID",
                    "LOC_S_ADDRESS1": "ADDRESS", "LOC_S_SUBURB": "SUBURB", "LOC_S_STATE": "STATE",
                    "LOC_S_POSTCODE": "POSTCODE"}
 TEACHER_TITLES = ["TEACHER_ID", "ORGANISATION_NAME", "SCHOOL_NAME", "TEACHER_NAME", "LNAME", "FNAME",
@@ -30,11 +31,11 @@ TEACHER_TITLES = ["TEACHER_ID", "ORGANISATION_NAME", "SCHOOL_NAME", "TEACHER_NAM
                   "ORGANISATION_ID", "SCHOOL_ID"]
 STUDENT_TITLES = ["SCHOOL_NAME", "SCHOOL_ID", "STUDENT_ID", "LOCATION_NAME",
                   "STUDENT_LNAME", "STUDENT_FNAME", "DOB", "TEL", "LOCATION_NAME_1"]
-TEACHER_FIELDS = {"TEACHER_ID": "CLS_TEACHER_ID", "ORGANISATION_NAME": "ORGANISATION_NAME",
+TEACHER_FIELDS = {"TEACHER_ID": "CLP_TEACHER_ID", "ORGANISATION_NAME": "ORGANISATION_NAME",
                   "SCHOOL_NAME": "SCHOOL_NAME", "TEACHER_NAME": "NAME",
                   "LNAME": "FAMILY_NAME", "FNAME": "GIVEN_NAMES", "TEACHER_LANGUAGES": "LANGUAGES",
                   "ORGANISATION_ID": "ORGANISATION_ID", "SCHOOL_ID": "SCHOOL_ID", }
-STUDENT_FIELDS = {"SCHOOL_NAME": "SCHOOL_NAME", "SCHOOL_ID": "SCHOOL_ID", "STUDENT_ID": "CLS_STUDENT_ID",
+STUDENT_FIELDS = {"SCHOOL_NAME": "SCHOOL_NAME", "SCHOOL_ID": "SCHOOL_ID", "STUDENT_ID": "CLP_STUDENT_ID",
                   "LOCATION_NAME": "LOCATION",
                   "STUDENT_LNAME": "FAMILY_NAME", "STUDENT_FNAME": "GIVEN_NAMES", "DOB": "DOB",
                   "TEL": "TEL", "LOCATION_NAME_1": "DAY_SCHOOL", }
@@ -117,13 +118,13 @@ def inject_required(type_name, dicts):
 
 
 def prepare_organisations(organisations):
-    unique_orgs = unique("clsOrganisationId", organisations)
+    unique_orgs = unique("clpOrganisationId", organisations)
     fat_orgs = inject_required("ClpOrganisation", unique_orgs)
     return fat_orgs
 
 
 def prepare_schools(schools):
-    uniques = unique("clsSchoolId", schools)
+    uniques = unique("clpSchoolId", schools)
     injected = inject_required("ClpSchool", uniques)
     return injected
 
@@ -136,7 +137,7 @@ def prepare_locations(locations):
         # get an existing location with the given name, or add the new location
         location = uniques.setdefault(x["name"], x)
         related_schools = location.setdefault("schools", list())
-        related_schools.append(x["clsSchoolId"])
+        related_schools.append(x["clpSchoolId"])
     injected = inject_required("ClpSchool", uniques.values())
     return injected
 
@@ -148,7 +149,7 @@ def convert_dob_to_datetime(s):
 
 
 def prepare_students(students):
-    uniques = unique("clsStudentId", students)
+    uniques = unique("clpStudentId", students)
     injected = inject_required("ClpStudent", uniques)
     for x in injected:
         x["dob"] = convert_dob_to_datetime(x["dob"])
@@ -156,7 +157,7 @@ def prepare_students(students):
 
 
 def prepare_teachers(teachers):
-    uniques = unique("clsTeacherId", teachers)
+    uniques = unique("clpTeacherId", teachers)
     injected = inject_required("ClpTeacher", uniques)
     return injected
 
@@ -184,7 +185,11 @@ def main():
         "teachers": prepare_teachers(teachers),
         "students": prepare_students(students)
     }
-    print(json.dumps(data))
+    nodes = {
+        "valueType": "nodes",
+        "values": list(itertools.chain.from_iterable(data.values()))
+    }
+    print(json.dumps(nodes))
 
 
 if __name__ == "__main__":
