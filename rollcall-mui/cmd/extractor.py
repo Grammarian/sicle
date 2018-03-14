@@ -41,6 +41,8 @@ STUDENT_FIELDS = {"SCHOOL_NAME": "SCHOOL_NAME", "SCHOOL_ID": "SCHOOL_ID", "STUDE
 
 
 class Sheet:
+    "Data container object to hold the contents of one sheet within an excel spreadsheet"
+
     def __init__(self, name, titles=None, rows=None):
         self.name = name
         self.titles = titles or []
@@ -57,8 +59,8 @@ def convert_row_to_dict(titles, row):
 def convert_xlsx(xlsx_file):
     """Convert the given XLSX spreadsheet to iterable of Sheet objects,
     in which row has been converted into a dictionary"""
-    wb = load_workbook(filename=xlsx_file, read_only=True, data_only=True)
-    for sheet in wb:
+    work_book = load_workbook(filename=xlsx_file, read_only=True, data_only=True)
+    for sheet in work_book:
         rows = [x for x in sheet.iter_rows()]
         if rows:
             titles = [cell.value for cell in rows[0]]
@@ -69,6 +71,7 @@ def convert_xlsx(xlsx_file):
 
 
 def to_camel(s):
+    """Convert an underscored title into camel case. 'PARENT_ORGANISATION_ID' => 'parentOrganisationId'"""
     bits = [(x.lower() if i == 0 else x.title())
             for (i, x) in enumerate(s.split("_"))]
     return "".join(bits)
@@ -79,10 +82,6 @@ def path_to_xlsx():
     return os.path.join(path_to_py, SOURCE_XLSX)
 
 
-def is_title_row(titles, row):
-    return all(x.value == titles[i] for (i, x) in enumerate(row))
-
-
 def extract(fields, row_as_dict):
     data = {}
     for (k, v) in fields.items():
@@ -91,20 +90,16 @@ def extract(fields, row_as_dict):
 
 
 def process_sheet(sheet, titles, field_defns):
-    rows = [x for x in sheet.iter_rows()]
-    if not is_title_row(titles, rows[0]):
+    if titles != sheet.titles:
         print("Sheet doesn't have expected titles")
         return []
 
-    dicts = [convert_row_to_dict(titles, row) for row in rows[1:]]
-    structs = [[extract(defn, x) for x in dicts] for defn in field_defns]
+    structs = [[extract(defn, x) for x in sheet.rows] for defn in field_defns]
     return structs
 
 
 def unique(key, dicts):
-    t = {}
-    for x in dicts:
-        t[x[key]] = x
+    t = {x[key]: x for x in dicts}
     return t.values()
 
 
@@ -113,7 +108,7 @@ def now_as_iso8601():
 
 
 def inject_required(type_name, dicts):
-    # Inject the required fields that graphcool import required
+    "Inject the required fields that graphcool import required"
     for x in dicts:
         x["_typeName"] = type_name
         x["id"] = cuid.cuid()
@@ -140,15 +135,23 @@ def prepare_locations(locations):
     for x in locations:
         # get an existing location with the given name, or add the new location
         location = uniques.setdefault(x["name"], x)
-        related_schools = location.setdefault("schools", set())
-        related_schools.add(x["clsSchoolId"])
+        related_schools = location.setdefault("schools", list())
+        related_schools.append(x["clsSchoolId"])
     injected = inject_required("ClpSchool", uniques.values())
     return injected
+
+
+def convert_dob_to_datetime(s):
+    "Convert the string from 99/MON/YY to a ISO date"
+    dt = datetime.datetime.strptime(s, "%d/%b/%y")
+    return dt.isoformat() + "Z"
 
 
 def prepare_students(students):
     uniques = unique("clsStudentId", students)
     injected = inject_required("ClpStudent", uniques)
+    for x in injected:
+        x["dob"] = convert_dob_to_datetime(x["dob"])
     return injected
 
 
@@ -159,19 +162,16 @@ def prepare_teachers(teachers):
 
 
 def extract_from_xlsx():
-    work_book = load_workbook(filename=path_to_xlsx(), data_only=False)
-    for sheet in work_book:
-        if sheet.title == "SCHOOL-ORG":
+    for sheet in convert_xlsx(path_to_xlsx()):
+        if sheet.name == "SCHOOL-ORG":
             (organisations, schools, locations) = process_sheet(
                 sheet, SCHOOL_TITLES, [ORGANISATION_FIELDS, SCHOOL_FIELDS, LOCATION_FIELDS])
-        elif sheet.title == "TEACHER":
-            (teachers, ) = process_sheet(
-                sheet, TEACHER_TITLES, [TEACHER_FIELDS])
-        elif sheet.title == "STUDENT":
-            (students, ) = process_sheet(
-                sheet, STUDENT_TITLES, [STUDENT_FIELDS])
+        elif sheet.name == "TEACHER":
+            (teachers, ) = process_sheet(sheet, TEACHER_TITLES, [TEACHER_FIELDS])
+        elif sheet.name == "STUDENT":
+            (students, ) = process_sheet(sheet, STUDENT_TITLES, [STUDENT_FIELDS])
         else:
-            print("Ignoring sheet:", sheet.title)
+            print("Ignoring sheet:", sheet.name)
     return (organisations, schools, locations, teachers, students)
 
 
