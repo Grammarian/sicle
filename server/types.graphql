@@ -2,11 +2,12 @@
 # based on which the GraphQL API is generated
 
 # The parent organisation who is responsible for the school
-type Organisation @model {
+type ClpOrganisation @model {
   id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
 
+  clpOrganisationId: String! @isUnique
   name: String
   electorate: String
   address: String
@@ -14,78 +15,82 @@ type Organisation @model {
   state: String
   postcode: String
 
-  clpOrganisationId: String! @isUnique
-
-  schools: [School!]! @relation(name: "OrganisationSchools")
+  schools: [ClpSchool!]! @relation(name: "ClpOrganisationSchools")
 }
 
 # The Community Language School
-type School @model {
+type ClpSchool @model {
   id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
 
+  clpSchoolId: String! @isUnique
   name: String
   electorate: String
   address: String
   suburb: String
   state: String
   postcode: String
+  language: String
 
-  clpSchoolId: String! @isUnique
-  organisation: Organisation @relation(name: "OrganisationSchools")
-  locations: [Location!]! @relation(name: "SchoolLocations")
-  students: [Student!]! @relation(name: "SchoolStudents")
-  teachers: [Teacher!]! @relation(name: "SchoolTeachers")
+  organisation: ClpOrganisation @relation(name: "ClpOrganisationSchools")
+  locations: [ClpLocation!]! @relation(name: "ClpSchoolLocations")
+  students: [ClpStudent!]! @relation(name: "ClpSchoolStudents")
+  teachers: [ClpTeacher!]! @relation(name: "ClpSchoolTeachers")
 }
 
 # A physical location where classes are held, often a public school
-type Location @model {
+type ClpLocation @model {
   id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
 
+  clpLocationId: String! @isUnique
   name: String
   electorate: String
   address: String
   suburb: String
   state: String
   postcode: String
-  clpLocationId: String! @isUnique
 
   # Geo-location
   lat: String
   lng: String
 
-  schools: [School!]! @relation(name: "SchoolLocations")
+  schools: [ClpSchool!]! @relation(name: "ClpSchoolLocations")
 }
 
-type Student @model {
+type ClpStudent @model {
   id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
 
+  clpStudentId: String! @isUnique
+  givenNames: String
+  familyName: String
+  dateOfBirth: DateTime
+  phone: String
+  daySchool: String
+  location: String
+  srn: String
+
+  school: ClpSchool @relation(name: "ClpSchoolStudents")
+}
+
+type ClpTeacher @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  clpTeacherId: String! @isUnique
   givenNames: String
   familyName: String
   dateOfBirth: DateTime
   phone: String
   email: String
+  languages: String
 
-  school: School @relation(name: "SchoolStudents")
-}
-
-type Teacher @model {
-  id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
-
-  givenNames: String
-  familyName: String
-  dateOfBirth: DateTime
-  phone: String
-  email: String
-
-  school: School @relation(name: "SchoolTeachers")
+  schools: [ClpSchool!]! @relation(name: "ClpSchoolTeachers")
 }
 
 type User @model {
@@ -94,13 +99,3 @@ type User @model {
   createdAt: DateTime!
   updatedAt: DateTime!
 }
-
-# Uncomment the model below as well
-
-# type Post @model {
-#   id: ID! @isUnique
-#   title: String!
-#
-#   # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
-#   author: User! @relation(name: "UserPosts")
-# }

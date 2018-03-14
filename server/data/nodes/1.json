@@ -1,7 +1,0 @@
-{
-  "valueType": "nodes",
-  "values": [
-    { "_typeName": "School", "id": "1", "clpSchoolId": "1", "name": "One" },
-    { "_typeName": "School", "id": "2", "clpSchoolId": "2", "name": "Two" }
-  ]
-}
