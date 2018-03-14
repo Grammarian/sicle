@@ -1,8 +1,9 @@
 
-rm ./new.zip
-pushd new
-#7za a ../new.zip *
-zip -r ../new.zip *
+rm -rf ./.import
+rm ./extract.zip
+pushd extract
+7za a ../extract.zip *
+#zip -r ../extract.zip *
 popd
 
-graphcool import --source new.zip
+DEBUG="*" graphcool import --source extract.zip

@@ -1,9 +1,8 @@
 # pip install openpyxl
 # pip install cuid
 import os.path
-import json 
+import json
 import datetime
-import itertools
 
 from openpyxl import load_workbook
 import cuid  # https://github.com/necaris/cuid.py - create uuid's in the format that graphcool expects
@@ -32,13 +31,13 @@ TEACHER_TITLES = ["TEACHER_ID", "ORGANISATION_NAME", "SCHOOL_NAME", "TEACHER_NAM
 STUDENT_TITLES = ["SCHOOL_NAME", "SCHOOL_ID", "STUDENT_ID", "LOCATION_NAME",
                   "STUDENT_LNAME", "STUDENT_FNAME", "DOB", "TEL", "LOCATION_NAME_1"]
 TEACHER_FIELDS = {"TEACHER_ID": "CLP_TEACHER_ID", "ORGANISATION_NAME": "ORGANISATION_NAME",
-                  "SCHOOL_NAME": "SCHOOL_NAME", "TEACHER_NAME": "NAME",
+                  "SCHOOL_NAME": "SCHOOL_NAME",
                   "LNAME": "FAMILY_NAME", "FNAME": "GIVEN_NAMES", "TEACHER_LANGUAGES": "LANGUAGES",
                   "ORGANISATION_ID": "ORGANISATION_ID", "SCHOOL_ID": "SCHOOL_ID", }
 STUDENT_FIELDS = {"SCHOOL_NAME": "SCHOOL_NAME", "SCHOOL_ID": "SCHOOL_ID", "STUDENT_ID": "CLP_STUDENT_ID",
                   "LOCATION_NAME": "LOCATION",
-                  "STUDENT_LNAME": "FAMILY_NAME", "STUDENT_FNAME": "GIVEN_NAMES", "DOB": "DOB",
-                  "TEL": "TEL", "LOCATION_NAME_1": "DAY_SCHOOL", }
+                  "STUDENT_LNAME": "FAMILY_NAME", "STUDENT_FNAME": "GIVEN_NAMES", "DOB": "DATE_OF_BIRTH",
+                  "TEL": "PHONE", "LOCATION_NAME_1": "DAY_SCHOOL", }
 
 
 class Sheet:
@@ -78,9 +77,9 @@ def to_camel(s):
     return "".join(bits)
 
 
-def path_to_xlsx():
+def relative_to_absolute(relative_path):
     path_to_py = os.path.abspath(os.path.dirname(__file__))
-    return os.path.join(path_to_py, SOURCE_XLSX)
+    return os.path.join(path_to_py, relative_path)
 
 
 def extract(fields, row_as_dict):
@@ -114,7 +113,7 @@ def inject_required(type_name, dicts):
         x["_typeName"] = type_name
         x["id"] = cuid.cuid()
         x["createdAt"] = x["updatedAt"] = now_as_iso8601()
-    return list(dicts)
+    return dicts
 
 
 def prepare_organisations(organisations):
@@ -137,33 +136,45 @@ def prepare_locations(locations):
         # get an existing location with the given name, or add the new location
         location = uniques.setdefault(x["name"], x)
         related_schools = location.setdefault("schools", list())
-        related_schools.append(x["clpSchoolId"])
-    injected = inject_required("ClpSchool", uniques.values())
+        related_schools.append(x.pop("clpSchoolId"))
+    injected = inject_required("ClpLocation", uniques.values())
+
+    # FIX THIS - Current extract doesn't include the CLP location id :( Make one up for the time being
+    for x in injected:
+        x["clpLocationId"] = cuid.cuid()
     return injected
 
 
 def convert_dob_to_datetime(s):
     "Convert the string from 99/MON/YY to a ISO date"
     dt = datetime.datetime.strptime(s, "%d/%b/%y")
-    return dt.isoformat() + "Z"
+    return dt.isoformat() + ".0Z"  # GraphCool import insists on microseconds, hence the ".0"
 
 
 def prepare_students(students):
     uniques = unique("clpStudentId", students)
     injected = inject_required("ClpStudent", uniques)
     for x in injected:
-        x["dob"] = convert_dob_to_datetime(x["dob"])
+        x["dateOfBirth"] = convert_dob_to_datetime(x["dateOfBirth"])
     return injected
 
 
 def prepare_teachers(teachers):
-    uniques = unique("clpTeacherId", teachers)
-    injected = inject_required("ClpTeacher", uniques)
+    # Like locations, the same teacher can have multiple records,
+    # each of which is identitical except that for being related to a different school.
+    # We have to collect all the schools that the same teacher is teaching at.
+    uniques = {}
+    for x in teachers:
+        # get an existing teacher with that id, or add the new teacher record
+        teacher = uniques.setdefault(x["clpTeacherId"], x)
+        related_schools = teacher.setdefault("schools", list())
+        related_schools.append(x.pop("schoolId"))
+    injected = inject_required("ClpTeacher", uniques.values())
     return injected
 
 
-def extract_from_xlsx():
-    for sheet in convert_xlsx(path_to_xlsx()):
+def extract_from_xlsx(file_path):
+    for sheet in convert_xlsx(file_path):
         if sheet.name == "SCHOOL-ORG":
             (organisations, schools, locations) = process_sheet(
                 sheet, SCHOOL_TITLES, [ORGANISATION_FIELDS, SCHOOL_FIELDS, LOCATION_FIELDS])
@@ -176,20 +187,51 @@ def extract_from_xlsx():
     return (organisations, schools, locations, teachers, students)
 
 
+def copy_without(dicts, *keys_to_remove):
+    "Return iterable that contains copies of the given dictionary with all the given keys removed"
+    copies = [x.copy() for x in dicts]
+    for d in copies:
+        for to_remove in keys_to_remove:
+            d.pop(to_remove, None)
+    return copies
+
+
+EXTRACT_OUTPUT_DIR = "../../server/extract"
+
+
+def write_nodes(file_name, collection):
+    path = relative_to_absolute(os.path.join(EXTRACT_OUTPUT_DIR, "nodes", file_name))
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        nodes = {
+            "valueType": "nodes",
+            "values": collection
+        }
+        f.write(json.dumps(nodes))
+
+
+def chunks(l, n):
+    """Yield n successive similar-sized chunks from l."""
+    chunk_size = 1 + len(l) // n
+    for i in range(0, len(l), chunk_size):
+        yield l[i:i + chunk_size]
+
+
 def main():
-    (organisations, schools, locations, teachers, students) = extract_from_xlsx()
-    data = {
-        "organisations": prepare_organisations(organisations),
-        "schools": prepare_schools(schools),
-        "locations": prepare_locations(locations),
-        "teachers": prepare_teachers(teachers),
-        "students": prepare_students(students)
-    }
-    nodes = {
-        "valueType": "nodes",
-        "values": list(itertools.chain.from_iterable(data.values()))
-    }
-    print(json.dumps(nodes))
+    (raw_organisations, raw_schools, raw_locations, raw_teachers,
+     raw_students) = extract_from_xlsx(relative_to_absolute(SOURCE_XLSX))
+    organisations = prepare_organisations(raw_organisations)
+    schools = prepare_schools(raw_schools)
+    locations = prepare_locations(raw_locations)
+    teachers = prepare_teachers(raw_teachers)
+    students = prepare_students(raw_students)
+    # write_nodes("1.json", list(organisations))
+    # write_nodes("2.json", copy_without(schools, "clpOrganisationId"))
+    # write_nodes("3.json", copy_without(locations, "schools"))
+    # write_nodes("4.json", copy_without(teachers, "organisationId", "organisationName", "schools", "schoolName"))
+    expegated_students = copy_without(students, "schoolId", "schoolName", "location")
+    for (i, chunk) in enumerate(chunks(expegated_students, 5)):
+        write_nodes("%d.json" % (1 + i), chunk)
 
 
 if __name__ == "__main__":
