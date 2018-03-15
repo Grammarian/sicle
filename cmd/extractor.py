@@ -9,6 +9,8 @@ import cuid  # https://github.com/necaris/cuid.py - create uuid's in the format 
 
 
 SOURCE_XLSX = "./data/CLP-DATAEXTRACT.xlsx"
+EXTRACT_OUTPUT_DIR = "../server/extract"
+
 SCHOOL_TITLES = ["ORGANISATION_ID", "ORGANISATION_NAME", "ORG_ELECTORATE", "P_ADDRESS1", "P_SUBURB", "P_STATE",
                  "P_POSTCODE", "S_ADDRESS1", "S_SUBURB", "S_STATE", "S_POSTCODE", "SCHOOL_NAME", "SCH_ELECTORATE",
                  "SCHOOL_ID", "SCHOOL_P_ADDRESS1",
@@ -194,9 +196,6 @@ def copy_without(dicts, *keys_to_remove):
         for to_remove in keys_to_remove:
             d.pop(to_remove, None)
     return copies
-
-
-EXTRACT_OUTPUT_DIR = "../../server/extract"
 
 
 def write_nodes(*list_of_lists):
