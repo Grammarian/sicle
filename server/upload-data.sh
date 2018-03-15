@@ -1,9 +1,12 @@
 
 rm -rf ./.import
-rm ./extract.zip
-pushd extract
-7za a ../extract.zip *
-#zip -r ../extract.zip *
+rm ./$1.zip
+pushd $1
+if command -v zip; then
+    zip -r ../$1.zip *
+else
+    7za a ../$1.zip *
+fi
 popd
 
-DEBUG="*" graphcool import --source extract.zip
+DEBUG="*" graphcool import --source $1.zip

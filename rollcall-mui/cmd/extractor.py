@@ -113,7 +113,7 @@ def inject_required(type_name, dicts):
         x["_typeName"] = type_name
         x["id"] = cuid.cuid()
         x["createdAt"] = x["updatedAt"] = now_as_iso8601()
-    return dicts
+    return list(dicts)
 
 
 def prepare_organisations(organisations):
@@ -199,39 +199,91 @@ def copy_without(dicts, *keys_to_remove):
 EXTRACT_OUTPUT_DIR = "../../server/extract"
 
 
-def write_nodes(file_name, collection):
-    path = relative_to_absolute(os.path.join(EXTRACT_OUTPUT_DIR, "nodes", file_name))
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+def write_nodes(*list_of_lists):
+    for (i, one_list) in enumerate(list_of_lists):
+        nodes_dir = relative_to_absolute(os.path.join(EXTRACT_OUTPUT_DIR + str(i), "nodes"))
+        os.makedirs(nodes_dir, exist_ok=True)
+        path = os.path.join(nodes_dir, "1.json")
+        with open(path, "w") as f:
+            nodes = {
+                "valueType": "nodes",
+                "values": one_list
+            }
+            f.write(json.dumps(nodes))
+
+
+def write_relations(list_of_relations):
+    relations_dir = relative_to_absolute(os.path.join(EXTRACT_OUTPUT_DIR + "-relations", "relations"))
+    os.makedirs(relations_dir, exist_ok=True)
+    path = os.path.join(relations_dir, "1.json")
     with open(path, "w") as f:
-        nodes = {
-            "valueType": "nodes",
-            "values": collection
+        relations = {
+            "valueType": "relations",
+            "values": list_of_relations
         }
-        f.write(json.dumps(nodes))
+        f.write(json.dumps(relations))
 
 
-def chunks(l, n):
+def chunks(n, l):
     """Yield n successive similar-sized chunks from l."""
     chunk_size = 1 + len(l) // n
     for i in range(0, len(l), chunk_size):
         yield l[i:i + chunk_size]
 
 
+def prepare(raw_organisations, raw_schools, raw_locations, raw_teachers, raw_students):
+    return (
+        prepare_organisations(raw_organisations),
+        prepare_schools(raw_schools),
+        prepare_locations(raw_locations),
+        prepare_teachers(raw_teachers),
+        prepare_students(raw_students)
+    )
+
+
+def make_relation(entity1, id1, field1, entity2, id2, field2):
+    return [
+        {"_typeName": entity1, "id": id1, "fieldName": field1},
+        {"_typeName": entity2, "id": id2, "fieldName": field2}
+    ]
+
+
+def generate_relations(organisations, schools, locations, teachers, students):
+
+    # Build school -> organisation relations
+    org_keys = {x["clpOrganisationId"]: x["id"] for x in organisations}
+    r1 = [make_relation("ClpOrganisation", org_keys[x["clpOrganisationId"]], "schools",
+                        "ClpSchool", x["id"], "organisation") for x in schools]
+
+    # Build location -> school relations
+    school_keys = {x["clpSchoolId"]: x["id"] for x in schools}
+    r2 = [make_relation("ClpLocation", location["id"], "schools",
+                        "ClpSchool", school_keys[schoolId], "locations")
+          for location in locations for schoolId in location.get("schools", [])]
+
+    # Build teacher -> school relations
+    r3 = [make_relation("ClpTeacher", teacher["id"], "schools",
+                        "ClpSchool", school_keys[schoolId], "teachers")
+          for teacher in teachers for schoolId in teacher.get("schools", [])]
+
+    # Build student -> school relations
+    r4 = [make_relation("ClpStudent", student["id"], "school",
+                        "ClpSchool", school_keys[student["schoolId"]], "students")
+          for student in students if student["schoolId"] in school_keys]
+    return r1 + r2 + r3 + r4
+
+
 def main():
-    (raw_organisations, raw_schools, raw_locations, raw_teachers,
-     raw_students) = extract_from_xlsx(relative_to_absolute(SOURCE_XLSX))
-    organisations = prepare_organisations(raw_organisations)
-    schools = prepare_schools(raw_schools)
-    locations = prepare_locations(raw_locations)
-    teachers = prepare_teachers(raw_teachers)
-    students = prepare_students(raw_students)
-    # write_nodes("1.json", list(organisations))
-    # write_nodes("2.json", copy_without(schools, "clpOrganisationId"))
-    # write_nodes("3.json", copy_without(locations, "schools"))
-    # write_nodes("4.json", copy_without(teachers, "organisationId", "organisationName", "schools", "schoolName"))
-    expegated_students = copy_without(students, "schoolId", "schoolName", "location")
-    for (i, chunk) in enumerate(chunks(expegated_students, 5)):
-        write_nodes("%d.json" % (1 + i), chunk)
+    xlsx_path = relative_to_absolute(SOURCE_XLSX)
+    raw_collections = extract_from_xlsx(xlsx_path)
+    (organisations, schools, locations, teachers, students) = prepare(*raw_collections)
+    write_nodes(
+        organisations,
+        copy_without(schools, "clpOrganisationId"),
+        copy_without(locations, "schools"),
+        copy_without(teachers, "organisationId", "organisationName", "schools", "schoolName"),
+        *chunks(3, copy_without(students, "schoolId", "schoolName", "location")))
+    write_relations(generate_relations(organisations, schools, locations, teachers, students))
 
 
 if __name__ == "__main__":
