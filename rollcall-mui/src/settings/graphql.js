@@ -1,4 +1,4 @@
-const graphCoolUri = "https://api.graph.cool/simple/v1/cjdl7f58b0l6d01611ql5p8jd";
+const graphCoolUri = "https://api.graph.cool/simple/v1/cjep3cfrt3n5501490xmkbr5k";
 
 module.exports = {
   graphCoolUri

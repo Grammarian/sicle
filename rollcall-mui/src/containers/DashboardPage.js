@@ -1,5 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { graphql } from "react-apollo";
+import gql from "graphql-tag";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 // react plugin for creating charts
 // import ChartistGraph from "react-chartist";
 import {
@@ -33,6 +37,18 @@ class Dashboard extends React.Component {
     this.setState({ value: index });
   };
   render() {
+    if (this.props.data.loading) {
+      return <Loading />;
+    }
+    if (this.props.data.error) {
+      return <Error data={this.props.data} />;
+    }
+    const {
+      _allClpStudentsMeta: { count: studentCount },
+      _allClpSchoolsMeta: { count: schoolCount },
+      _allClpTeachersMeta: { count: teacherCount },
+      _allClpLocationsMeta: { count: locationCount }
+    } = this.props.data;
     return (
       <div>
         <Grid container>
@@ -41,7 +57,7 @@ class Dashboard extends React.Component {
               icon={Accessibility}
               iconColor="orange"
               title="Students In Class"
-              description="27,300"
+              description={studentCount}
               statIcon={DateRange}
               statText="Last week"
             />
@@ -51,7 +67,7 @@ class Dashboard extends React.Component {
               icon={Store}
               iconColor="green"
               title="Campuses Used"
-              description="918"
+              description={locationCount}
               statIcon={DateRange}
               statText="Last week"
             />
@@ -62,7 +78,7 @@ class Dashboard extends React.Component {
               icon={School}
               iconColor="blue"
               title="Teachers"
-              description="2,530"
+              description={teacherCount}
               statIcon={Update}
               statText="Last week"
             />
@@ -71,8 +87,8 @@ class Dashboard extends React.Component {
             <StatsCard
               icon={InfoOutline}
               iconColor="red"
-              title="Discipline Issues"
-              description="75"
+              title="Schools"
+              description={schoolCount}
               statIcon={Hearing}
               statText="Inferred from noise level"
             />
@@ -90,7 +106,25 @@ class Dashboard extends React.Component {
 }
 
 Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired
 };
 
-export default withStyles(dashboardStyle)(Dashboard);
+const EntityCounts = gql`
+  query EntityCounts {
+    _allClpStudentsMeta {
+      count
+    }
+    _allClpSchoolsMeta {
+      count
+    }
+    _allClpTeachersMeta {
+      count
+    }
+    _allClpLocationsMeta {
+      count
+    }
+  }
+`;
+
+export default graphql(EntityCounts)(withStyles(dashboardStyle)(Dashboard));
