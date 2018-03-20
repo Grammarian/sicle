@@ -90,4 +90,8 @@ class Circle extends React.Component {
   }
 }
 
+Circle.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
 export default withStyles(styles)(Circle);

@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
-import Reboot from "material-ui/Reboot";
+import CssBaseline from "material-ui/CssBaseline";
 
 import "../assets/app.css";
 
@@ -11,7 +11,7 @@ const hist = createBrowserHistory();
 
 const App = () => (
   <div>
-    <Reboot />
+    <CssBaseline />
     <Router history={hist}>
       <Switch>
         {topRoutes.map((route, idx) => {

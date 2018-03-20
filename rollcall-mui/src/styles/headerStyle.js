@@ -2,16 +2,7 @@
 // // // Header styles
 // #############################
 
-import {
-  container,
-  defaultFont,
-  primaryColor,
-  defaultBoxShadow,
-  infoColor,
-  successColor,
-  warningColor,
-  dangerColor
-} from "./default";
+import { container, defaultFont, primaryColor } from "./default";
 
 const headerStyle = theme => ({
   appBar: {

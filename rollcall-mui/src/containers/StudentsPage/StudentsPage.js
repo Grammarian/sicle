@@ -36,8 +36,8 @@ class StudentsPage extends Component {
     });
   };
   render() {
-    const { classes } = this.props;
-    const { lessonId } = this.state;
+    // const { classes } = this.props;
+    // const { lessonId } = this.state;
     const columns = [
       { name: "name", title: "Name", getCellValue: row => `${row.familyName}, ${row.givenNames}` },
       {

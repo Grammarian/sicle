@@ -6,17 +6,7 @@ import Loading from "../components/Loading";
 import Error from "../components/Error";
 // react plugin for creating charts
 // import ChartistGraph from "react-chartist";
-import {
-  School,
-  Store,
-  InfoOutline,
-  Hearing,
-  DateRange,
-  Update,
-  ArrowUpward,
-  AccessTime,
-  Accessibility
-} from "material-ui-icons";
+import { School, Store, InfoOutline, Hearing, DateRange, Update, Accessibility } from "material-ui-icons";
 import { withStyles, Grid } from "material-ui";
 
 import { Heading } from "../basics";

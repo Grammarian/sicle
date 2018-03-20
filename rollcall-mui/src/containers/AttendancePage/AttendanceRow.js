@@ -7,7 +7,7 @@ const styles = theme => ({});
 
 class AttendanceRow extends Component {
   render() {
-    const { classes, student } = this.props;
+    const { student } = this.props;
     return (
       <ListItem>
         <ListItemText primary={student.familyName + " " + student.givenNames} />

@@ -7,12 +7,11 @@ const theme = createMuiTheme({
     type: "light"
   },
   typography: {
-    fontFamily: "'Open Sans',serif,Roboto,'Helvetica Neue',Arial,sans-serif"
+    fontFamily: "'Open Sans',Roboto,'Helvetica Neue',Arial,sans-serif",
+    fontSize: "18px"
   }
 });
 
-const Theme = props => (
-  <MuiThemeProvider theme={theme}>{props.children}</MuiThemeProvider>
-);
+const Theme = props => <MuiThemeProvider theme={theme}>{props.children}</MuiThemeProvider>;
 
 export default Theme;

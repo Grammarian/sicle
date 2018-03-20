@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GoogleMapReact from "google-map-react";
-import { withStyles, Grid } from "material-ui";
+import { withStyles } from "material-ui";
 
 import Circle from "./Circle";
 import MarkerPopup from "./MarkerPopup";
@@ -101,7 +101,7 @@ class SimpleMap extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    // const { classes } = this.props;
     const { center, zoom } = this.state;
     return (
       <GoogleMapReact
@@ -116,13 +116,7 @@ class SimpleMap extends React.Component {
         {Locations.map(
           (x, i) =>
             x.found && (
-              <Circle
-                key={i}
-                lat={x.lat}
-                lng={x.lng}
-                zoom={zoom}
-                width={this.calcWidthForPopulation(x.students, zoom)}
-              >
+              <Circle key={i} lat={x.lat} lng={x.lng} zoom={zoom} width={this.calcWidthForPopulation(x.students, zoom)}>
                 <MarkerPopup model={x} />
               </Circle>
             )

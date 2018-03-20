@@ -1,15 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Menu, Person } from "material-ui-icons";
-import {
-  withStyles,
-  AppBar,
-  Toolbar,
-  IconButton,
-  Hidden,
-  Button,
-  Avatar
-} from "material-ui";
+import { Menu } from "material-ui-icons";
+import { withStyles, AppBar, Toolbar, IconButton, Hidden, Button, Avatar } from "material-ui";
 import cx from "classnames";
 
 import headerStyle from "../styles/headerStyle.js";
