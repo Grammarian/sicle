@@ -7,13 +7,15 @@ import IconCard from "../../components/IconCard";
 import ItemGrid from "../../components/ItemGrid";
 import { StudentsQuery } from "../../graphql";
 
-import { Grid, Table, Toolbar, SearchPanel, TableHeaderRow } from "@devexpress/dx-react-grid-material-ui";
+import { Grid, Table, Toolbar, SearchPanel, TableHeaderRow, PagingPanel } from "@devexpress/dx-react-grid-material-ui";
 import {
   SearchState,
   SortingState,
   IntegratedSorting,
   IntegratedFiltering,
-  DataTypeProvider
+  DataTypeProvider,
+  PagingState,
+  IntegratedPaging
 } from "@devexpress/dx-react-grid";
 
 const studentsPageStyle = {
@@ -62,13 +64,16 @@ class StudentsPage extends Component {
                   <Grid rows={x.allClpStudents} columns={columns}>
                     <DateTypeProvider for={["dateOfBirth"]} />
                     <SearchState />
-                    <SortingState defaultSorting={[{ columnName: "familyName", direction: "asc" }]} />
+                    <SortingState defaultSorting={[{ columnName: "name", direction: "asc" }]} />
                     <IntegratedSorting />
                     <IntegratedFiltering />
+                    <PagingState defaultCurrentPage={0} defaultPageSize={500} />
+                    <IntegratedPaging />
                     <Table />
                     <TableHeaderRow showSortingControls />
                     <Toolbar />
                     <SearchPanel />
+                    <PagingPanel />
                   </Grid>
                 )}
               </StudentsQuery>

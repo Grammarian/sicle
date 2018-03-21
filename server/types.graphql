@@ -83,12 +83,27 @@ type ClpTeacher @model {
   updatedAt: DateTime!
 
   clpTeacherId: String! @isUnique
+  title: String
   givenNames: String
   familyName: String
   dateOfBirth: DateTime
-  phone: String
+  dayPhone: String
+  eveningPhone: String
+  mobile: String
   email: String
   languages: String
+
+  address1: String
+  address2: String
+  suburb: String
+  state: String
+  postcode: String
+
+  levelTaught: String
+  educationLevel: String
+  educationField: String
+  educationCountry: String
+  educationYear: String
 
   schools: [ClpSchool!]! @relation(name: "ClpSchoolTeachers")
 }

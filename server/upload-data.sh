@@ -1,6 +1,8 @@
 
 rm -rf ./.import
-rm ./$1.zip
+if [-e ./$1.zip]; then
+    rm ./$1.zip
+fi
 pushd $1
 if command -v zip; then
     zip -r ../$1.zip *
@@ -9,4 +11,5 @@ else
 fi
 popd
 
-DEBUG="*" graphcool import --source $1.zip
+DGB="" # DEBUG="*"
+$DBG graphcool import --source $1.zip

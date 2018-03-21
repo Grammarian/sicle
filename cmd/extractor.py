@@ -8,7 +8,7 @@ from openpyxl import load_workbook
 import cuid  # https://github.com/necaris/cuid.py - create uuid's in the format that graphcool expects
 
 
-SOURCE_XLSX = "./data/CLP-DATAEXTRACT.xlsx"
+SOURCE_XLSX = "./data/CLP_combined.xlsx"
 EXTRACT_OUTPUT_DIR = "../server/extract"
 
 SCHOOL_TITLES = ["ORGANISATION_ID", "ORGANISATION_NAME", "ORG_ELECTORATE", "P_ADDRESS1", "P_SUBURB", "P_STATE",
@@ -27,17 +27,24 @@ SCHOOL_FIELDS = {"SCHOOL_NAME": "NAME", "SCH_ELECTORATE": "ELECTORATE", "SCHOOL_
 LOCATION_FIELDS = {"LOCATION_NAME": "NAME", "LOC_ELECTORATE": "ELECTORATE", "SCHOOL_ID": "CLP_SCHOOL_ID",
                    "LOC_S_ADDRESS1": "ADDRESS", "LOC_S_SUBURB": "SUBURB", "LOC_S_STATE": "STATE",
                    "LOC_S_POSTCODE": "POSTCODE"}
-TEACHER_TITLES = ["TEACHER_ID", "ORGANISATION_NAME", "SCHOOL_NAME", "TEACHER_NAME", "LNAME", "FNAME",
+TEACHER_TITLES = ["TEACHER_ID", "ORGANISATION_NAME", "SCHOOL_NAME", "TEACHER_NAME", "TITLE", "LNAME", "FNAME",
                   "TEACHER_LANGUAGES", "P_ADDRESS1", "P_ADDRESS2", "P_SUBURB", "P_STATE", "P_POSTCODE",
-                  "ORGANISATION_ID", "SCHOOL_ID"]
-STUDENT_TITLES = ["SCHOOL_NAME", "SCHOOL_ID", "STUDENT_ID", "LOCATION_NAME",
+                  "TELEPHONE", "TEL_EVENING", "EMAIL", "MOBILE", "LEVEL_TAUGHT", "LEVEL_OF_EDUCATION",
+                  "FIELD_OF_EDUCATION", "DEGREE_COUNTRY", "DEGREE_YEAR", "ORGANISATION_ID", "SCHOOL_ID"]
+STUDENT_TITLES = ["SCHOOL_NAME", "SCHOOL_ID", "STUDENT_ID", "STUDENT_SRN", "LOCATION_NAME",
                   "STUDENT_LNAME", "STUDENT_FNAME", "DOB", "TEL", "LOCATION_NAME_1"]
 TEACHER_FIELDS = {"TEACHER_ID": "CLP_TEACHER_ID", "ORGANISATION_NAME": "ORGANISATION_NAME",
-                  "SCHOOL_NAME": "SCHOOL_NAME",
+                  "SCHOOL_NAME": "SCHOOL_NAME", "TITLE": "TITLE",
                   "LNAME": "FAMILY_NAME", "FNAME": "GIVEN_NAMES", "TEACHER_LANGUAGES": "LANGUAGES",
+                  "P_ADDRESS1": "ADDRESS1", "P_ADDRESS2": "ADDRESS2", "P_SUBURB": "SUBURB",
+                  "P_STATE": "STATE", "P_POSTCODE": "POSTCODE",
+                  "TELEPHONE": "DAY_PHONE", "TEL_EVENING": "EVENING_PHONE", "EMAIL": "EMAIL", "MOBILE": "MOBILE",
+                  "LEVEL_TAUGHT": "LEVEL_TAUGHT", "LEVEL_OF_EDUCATION": "EDUCATION_LEVEL",
+                  "FIELD_OF_EDUCATION": "EDUCATION_FIELD", "DEGREE_COUNTRY": "EDUCATION_COUNTRY",
+                  "DEGREE_YEAR": "EDUCATION_YEAR",
                   "ORGANISATION_ID": "ORGANISATION_ID", "SCHOOL_ID": "SCHOOL_ID", }
 STUDENT_FIELDS = {"SCHOOL_NAME": "SCHOOL_NAME", "SCHOOL_ID": "SCHOOL_ID", "STUDENT_ID": "CLP_STUDENT_ID",
-                  "LOCATION_NAME": "LOCATION",
+                  "STUDENT_SRN": "SRN", "LOCATION_NAME": "LOCATION",
                   "STUDENT_LNAME": "FAMILY_NAME", "STUDENT_FNAME": "GIVEN_NAMES", "DOB": "DATE_OF_BIRTH",
                   "TEL": "PHONE", "LOCATION_NAME_1": "DAY_SCHOOL", }
 
@@ -54,7 +61,8 @@ class Sheet:
 def convert_row_to_dict(titles, row):
     data = {}
     for (i, cell) in enumerate(row):
-        data[titles[i]] = str(cell.value)
+        if cell.Value is not None:
+            data[titles[i]] = str(cell.value)
     return data
 
 
@@ -93,7 +101,7 @@ def extract(fields, row_as_dict):
 
 def process_sheet(sheet, titles, field_defns):
     if titles != sheet.titles:
-        print("Sheet doesn't have expected titles")
+        print("Sheet doesn't have expected titles:", [(i, x) for (i, x) in enumerate(titles) if x != sheet.titles[i]])
         return []
 
     structs = [[extract(defn, x) for x in sheet.rows] for defn in field_defns]
@@ -180,9 +188,9 @@ def extract_from_xlsx(file_path):
         if sheet.name == "SCHOOL-ORG":
             (organisations, schools, locations) = process_sheet(
                 sheet, SCHOOL_TITLES, [ORGANISATION_FIELDS, SCHOOL_FIELDS, LOCATION_FIELDS])
-        elif sheet.name == "TEACHER":
+        elif sheet.name == "Teacher":
             (teachers, ) = process_sheet(sheet, TEACHER_TITLES, [TEACHER_FIELDS])
-        elif sheet.name == "STUDENT":
+        elif sheet.name == "Student":
             (students, ) = process_sheet(sheet, STUDENT_TITLES, [STUDENT_FIELDS])
         else:
             print("Ignoring sheet:", sheet.name)
@@ -211,16 +219,17 @@ def write_nodes(*list_of_lists):
             f.write(json.dumps(nodes))
 
 
-def write_relations(list_of_relations):
-    relations_dir = relative_to_absolute(os.path.join(EXTRACT_OUTPUT_DIR + "-relations", "relations"))
-    os.makedirs(relations_dir, exist_ok=True)
-    path = os.path.join(relations_dir, "1.json")
-    with open(path, "w") as f:
-        relations = {
-            "valueType": "relations",
-            "values": list_of_relations
-        }
-        f.write(json.dumps(relations))
+def write_relations(list_of_lists):
+    for (i, one_list) in enumerate(list_of_lists):
+        nodes_dir = relative_to_absolute(os.path.join(EXTRACT_OUTPUT_DIR + "-relations" + str(i), "relations"))
+        os.makedirs(nodes_dir, exist_ok=True)
+        path = os.path.join(nodes_dir, "1.json")
+        with open(path, "w") as f:
+            nodes = {
+                "valueType": "relations",
+                "values": list(one_list)
+            }
+            f.write(json.dumps(nodes))
 
 
 def chunks(n, l):
@@ -251,25 +260,24 @@ def generate_relations(organisations, schools, locations, teachers, students):
 
     # Build school -> organisation relations
     org_keys = {x["clpOrganisationId"]: x["id"] for x in organisations}
-    r1 = [make_relation("ClpOrganisation", org_keys[x["clpOrganisationId"]], "schools",
-                        "ClpSchool", x["id"], "organisation") for x in schools]
+    yield [make_relation("ClpOrganisation", org_keys[x["clpOrganisationId"]], "schools",
+                         "ClpSchool", x["id"], "organisation") for x in schools]
 
     # Build location -> school relations
     school_keys = {x["clpSchoolId"]: x["id"] for x in schools}
-    r2 = [make_relation("ClpLocation", location["id"], "schools",
-                        "ClpSchool", school_keys[schoolId], "locations")
-          for location in locations for schoolId in location.get("schools", [])]
+    yield [make_relation("ClpLocation", location["id"], "schools",
+                         "ClpSchool", school_keys[schoolId], "locations")
+           for location in locations for schoolId in location.get("schools", [])]
 
     # Build teacher -> school relations
-    r3 = [make_relation("ClpTeacher", teacher["id"], "schools",
-                        "ClpSchool", school_keys[schoolId], "teachers")
-          for teacher in teachers for schoolId in teacher.get("schools", [])]
+    yield [make_relation("ClpTeacher", teacher["id"], "schools",
+                         "ClpSchool", school_keys[schoolId], "teachers")
+           for teacher in teachers for schoolId in teacher.get("schools", [])]
 
     # Build student -> school relations
-    r4 = [make_relation("ClpStudent", student["id"], "school",
-                        "ClpSchool", school_keys[student["schoolId"]], "students")
-          for student in students if student["schoolId"] in school_keys]
-    return r1 + r2 + r3 + r4
+    yield [make_relation("ClpStudent", student["id"], "school",
+                         "ClpSchool", school_keys[student["schoolId"]], "students")
+           for student in students if student["schoolId"] in school_keys]
 
 
 def main():
