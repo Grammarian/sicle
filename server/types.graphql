@@ -109,8 +109,10 @@ type ClpTeacher @model {
 }
 
 type User @model {
-  id: ID! @isUnique
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime! # read-only (managed by Graphcool)
+  updatedAt: DateTime! # read-only (managed by Graphcool)
   name: String
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  email: String
+  auth0UserId: String @isUnique
 }
