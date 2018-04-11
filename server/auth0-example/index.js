@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     domain: "sicle.au.auth0.com",
     redirectUri: "http://localhost:5000",
     responseType: "token",
-    scope: "openid email"
+    scope: "openid email profile"
   });
 
   var elButton = document.getElementById("authenticate");
