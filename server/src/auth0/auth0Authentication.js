@@ -44,8 +44,7 @@ const verifyToken = token =>
 const getGraphcoolUser = (auth0UserId, api) =>
   api
     .request(
-      `
-        query getUser($auth0UserId: String!){
+      `query getUser($auth0UserId: String!){
           User(auth0UserId: $auth0UserId){
             id
           }
@@ -59,8 +58,7 @@ const getGraphcoolUser = (auth0UserId, api) =>
 const createGraphCoolUser = (auth0UserId, email, api) =>
   api
     .request(
-      `
-        mutation createUser($auth0UserId: String!, $email: String) {
+      `mutation createUser($auth0UserId: String!, $email: String) {
           createUser(
             auth0UserId: $auth0UserId
             email: $email
@@ -76,7 +74,10 @@ const createGraphCoolUser = (auth0UserId, email, api) =>
 const fetchAuth0Email = accessToken =>
   fetch(`https://${process.env.AUTH0_DOMAIN}/userinfo?access_token=${accessToken}`)
     .then(response => response.json())
-    .then(json => json.email);
+    .then(json => {
+      console.log("decoded:", json);
+      return json.email;
+    });
 
 export default async event => {
   try {
