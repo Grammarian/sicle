@@ -12,6 +12,7 @@ import appRoutes from "../routes/rollcallApp.js";
 
 import image from "../assets/sidebar-2.jpg";
 import logo from "../assets/logo.png";
+import { withCurrentUser } from "../graphql";
 
 class Main extends React.Component {
   state = {
@@ -57,4 +58,4 @@ Main.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(appStyle)(Main);
+export default withStyles(appStyle)(withCurrentUser(Main));
