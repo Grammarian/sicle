@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { withStyles } from "material-ui";
 
 import { Theme, Heading, SubHeading, BodyText } from "../basics";
+import TitleBar from "../components/TitleBar";
 
 const pageStyle = {
   container: {
     maxWidth: "640px",
     marginRight: "auto",
-    marginLeft: "auto"
+    marginLeft: "auto",
+    marginTop: "80px"
   }
 };
 
@@ -32,8 +34,8 @@ class PrivacyPage extends Component {
     return (
       <Theme typography={typography}>
         <div className={classes.container}>
-          <Heading>RollCall Privacy Policy</Heading>
-
+          <TitleBar>RollCall </TitleBar>
+          <Heading>Privacy Policy</Heading>
           <BodyText>
             This following document sets forth the Privacy Policy for the Bright Ideas Software website,
             https://rollcallapp.net.

@@ -8,6 +8,7 @@ function withCurrentUser(WrappedComponent) {
     render() {
       const { auth } = this.props;
       if (!auth.isAuthenticated()) {
+        console.log("HERE");
         return <Redirect to="/signin" />;
       }
       return (

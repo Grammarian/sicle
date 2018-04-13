@@ -5,7 +5,7 @@ import GeoPage from "../containers/GeoPage/GeoPage.js";
 
 import { Dashboard, Person, CheckCircle, Map } from "material-ui-icons";
 
-const rollCallAppRoutes = [
+const centralAreaRoutes = [
   {
     path: "/dashboard",
     sidebarName: "Dashboard",
@@ -34,7 +34,10 @@ const rollCallAppRoutes = [
     icon: Map,
     component: GeoPage
   },
-  { redirect: true, path: "/", to: "/dashboard", headerName: "Redirect" }
+  {
+    path: "/student/{id}",
+    component: StudentsPage
+  }
 ];
 
-export default rollCallAppRoutes;
+export default centralAreaRoutes;

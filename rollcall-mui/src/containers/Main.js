@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import { withStyles } from "material-ui";
 
@@ -8,10 +8,11 @@ import appStyle from "../styles/appStyle.js";
 
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import appRoutes from "../routes/rollcallApp.js";
+import centralRoutes from "../routes/centralContent";
 
 import image from "../assets/sidebar-2.jpg";
 import logo from "../assets/logo.png";
+import { themed } from "../basics";
 import { withCurrentUser } from "../graphql";
 
 class Main extends React.Component {
@@ -27,7 +28,7 @@ class Main extends React.Component {
     return (
       <div className={classes.wrapper}>
         <Sidebar
-          routes={appRoutes}
+          routes={centralRoutes.filter(x => !!x.sidebarName)}
           logoText={"Roll Call"}
           logo={logo}
           image={image}
@@ -37,14 +38,11 @@ class Main extends React.Component {
           {...rest}
         />
         <div className={classes.mainPanel} ref="mainPanel">
-          <Header routes={appRoutes} handleDrawerToggle={this.handleDrawerToggle} {...rest} />
+          <Header routes={centralRoutes} handleDrawerToggle={this.handleDrawerToggle} {...rest} />
           <div className={classes.content}>
             <div className={classes.container}>
               <Switch>
-                {appRoutes.map((prop, key) => {
-                  if (prop.redirect) return <Redirect from={prop.path} to={prop.to} key={key} />;
-                  return <Route path={prop.path} component={prop.component} key={key} />;
-                })}
+                {centralRoutes.map((route, key) => <Route path={route.path} component={route.component} key={key} />)}
               </Switch>
             </div>
           </div>
@@ -55,7 +53,8 @@ class Main extends React.Component {
 }
 
 Main.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  currentUser: PropTypes.object
 };
 
-export default withStyles(appStyle)(withCurrentUser(Main));
+export default withStyles(appStyle)(withCurrentUser(themed(Main)));

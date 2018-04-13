@@ -11,7 +11,7 @@ import SearchBar from "./SearchBar";
 
 function findHeaderLabel(routes, location) {
   const route = routes.find(x => x.path === location.pathname);
-  return !!route ? route.headerName : null;
+  return !!route ? route.headerName : "Can't find path";
 }
 
 // TODO

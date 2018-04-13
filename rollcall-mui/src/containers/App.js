@@ -1,7 +1,8 @@
 import React from "react";
 import { history } from "../basics";
-import { Router, Route, Switch } from "react-router-dom";
+import { Redirect, Router, Route, Switch } from "react-router-dom";
 import CssBaseline from "material-ui/CssBaseline";
+import { Client } from "../graphql";
 
 import "../assets/app.css";
 
@@ -10,13 +11,18 @@ import topRoutes from "../routes/topLevel.js";
 const App = () => (
   <div>
     <CssBaseline />
-    <Router history={history}>
-      <Switch>
-        {topRoutes.map((route, idx) => {
-          return <Route path={route.path} component={route.component} key={idx} />;
-        })}
-      </Switch>
-    </Router>
+    <Client>
+      <Router history={history}>
+        <Switch>
+          {topRoutes.map((route, idx) => {
+            if (!!route.redirect) {
+              return <Redirect from={route.path} to={route.redirect} key={idx} />;
+            }
+            return <Route path={route.path} component={route.component} key={idx} exact={!!route.exact} />;
+          })}
+        </Switch>
+      </Router>
+    </Client>
   </div>
 );
 
